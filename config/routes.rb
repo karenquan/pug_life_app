@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  root "images#index"
+
+  resources :user do
+    resources :albums
+    resources :favorites
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
