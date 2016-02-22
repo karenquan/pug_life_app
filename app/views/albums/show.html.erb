@@ -3,8 +3,8 @@
 <% @images.each do |image| %>
   <div>
     <h2><%= image.title %></h2>
-    <p><%= image.description %></p>
-    <p><%= image.url %></p>
+    <p><%= image.description %>, <%= image.url %></p>
+    <p><%= link_to 'Edit', edit_user_album_image_path(:album_id => @album.id, :id => image.id) %> | <%= link_to 'Delete', user_album_image_path(:album_id => @album.id, :id => image.id), method: :delete, data: { confirm: 'Are you sure you want to delete this image?' } %></p>
   </div>
 <% end %>
 
