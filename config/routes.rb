@@ -1,9 +1,26 @@
 Rails.application.routes.draw do
 
+  get 'images/index'
+
+  get 'images/new'
+
+  get 'images/create'
+
+  get 'images/show'
+
+  get 'images/edit'
+
+  get 'images/update'
+
+  get 'images/destroy'
+
   root "users#index"
 
   resources :users do
-    resources :albums
+    resources :albums do
+      resources :images
+    end
+
     resources :favorites
   end
 
