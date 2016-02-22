@@ -10,13 +10,13 @@ class AlbumsController < ApplicationController
   end
 
   def new
-    @album_owner = User.find(params[:id])
+    @user = User.find(params[:user_id])
     @album = Album.new
   end
 
   def create
-    @album_owner = User.find(params[:id])
-    @album = @album_owner.albums.build album_params
+    @user = User.find(params[:user_id])
+    @album = @user.albums.build album_params
 
     if @album.save
       flash[:notice] = 'You have created a new album!'
@@ -28,6 +28,7 @@ class AlbumsController < ApplicationController
 
   def show
     @album = Album.find(params[:id])
+    @images = @album.images
   end
 
   def edit

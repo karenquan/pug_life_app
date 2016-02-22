@@ -1,2 +1,10 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= @user.username %></h1>
+
+<% @albums.each do |album| %>
+  <div>
+    <%= album.title %>
+
+  </div>
+<% end %>
+
+<%= link_to 'Add Album', new_user_album_path(@user) %>
