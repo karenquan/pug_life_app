@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
-  root "images#index"
 
-  resources :user do
+  root "users#index"
+
+  resources :users do
     resources :albums
     resources :favorites
   end
+
+  get '/signup', to: 'users#new'
+
+  resources :sessions, only: [:new, :create, :destroy]
+    get '/login', to: 'sessions#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
