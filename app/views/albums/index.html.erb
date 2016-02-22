@@ -1,2 +1,8 @@
-<h1>Albums#index</h1>
-<p>Find me in app/views/albums/index.html.erb</p>
+<h1>Albums</h1>
+
+<% @albums.each do |album| %>
+  <div>
+    <h2><%= album.title %></h2>
+    <p><%= album.description %></p>
+  </div>
+<% end %>

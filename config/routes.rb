@@ -1,24 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'images/index'
-
-  get 'images/new'
-
-  get 'images/create'
-
-  get 'images/show'
-
-  get 'images/edit'
-
-  get 'images/update'
-
-  get 'images/destroy'
-
   root "users#index"
+
+  resources :images, only: [:index]
 
   resources :users do
     resources :albums do
-      resources :images
+      resources :images, shallow: true
     end
 
     resources :favorites
