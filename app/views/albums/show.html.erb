@@ -8,4 +8,9 @@
   </div>
 <% end %>
 
-<%= link_to 'Back to Profile', user_path %>
+<!-- add condition if user is current_user, allow edit -->
+<%= link_to 'Edit Album', edit_user_album_path(:id => @album.id) %>
+<br />
+<%= link_to 'Add Image', new_user_album_image_path(:album_id => @album.id) %>
+<br />
+<%= link_to 'Back to Profile', user_path(@user) %>

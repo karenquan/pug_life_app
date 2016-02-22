@@ -1,8 +1,8 @@
 class AlbumsController < ApplicationController
   def index
     if params[:user_id]
-      @album_owner = User.find(params[:user_id])
-      @albums = @album_owner.albums
+      @user = User.find(params[:user_id])
+      @albums = @user.albums
     else
       @albums = Album.all
     end
@@ -19,8 +19,7 @@ class AlbumsController < ApplicationController
     @album = @user.albums.build album_params
 
     if @album.save
-      flash[:notice] = 'You have created a new album!'
-      redirect_to user_albums_path
+      redirect_to user_path(params[:user_id])
     else
       render :new
     end
@@ -29,17 +28,21 @@ class AlbumsController < ApplicationController
   def show
     @album = Album.find(params[:id])
     @images = @album.images
+    @user = User.find(params[:user_id])
   end
 
   def edit
+    # add user condition check
     @album = Album.find(params[:id])
+    @user = User.find(params[:user_id])
   end
 
   def update
+    #add user condition check
     @album = Album.find(params[:id])
 
     if @album.update_attributes(album_params)
-      redirect_to user_albums_path
+      redirect_to user_path(params[:user_id])
     else
       render :edit
     end
@@ -47,9 +50,9 @@ class AlbumsController < ApplicationController
 
   def destroy
     @album = Album.find(params[:id])
-    # CHECK ALBUM BELONGS TO CURRENT USER BEFORE ALLOWING DELETE
+    # add user condition check
     @album.destroy
-    redirect_to user_albums_path
+    redirect_to user_path(params[:user_id])
   end
 
   private

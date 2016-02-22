@@ -18,8 +18,7 @@ class ImagesController < ApplicationController
     @image = @album.images.build image_params
 
     if @image.save
-      flash[:notice] = 'You have created a new book!'
-      redirect_to image_path(@image)
+      redirect_to user_album_path(params[:album_id])
     else
       render :new
     end
@@ -30,23 +29,26 @@ class ImagesController < ApplicationController
   end
 
   def edit
+    # add user condition check
     @image = Image.find(params[:id])
   end
 
   def update
+    # add user condition check
     @image = Image.find(params[:id])
 
     if @image.update_attributes(image_params)
-      redirect_to image_path(@image)
+      redirect_to user_album_path(params[:album_id])
     else
       render :edit
     end
   end
 
   def destroy
+    # add user condition check
     @image = Image.find(image_params)
-    #check if image belongs in album of current user before allowing delete
-
+    @image.destroy
+    redirect_to user_album_path(params[:album_id])
   end
 
   private

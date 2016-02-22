@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
-  root "users#index"
+  root "images#index"
 
   resources :images, only: [:index]
 
   resources :users do
-    resources :albums do
+    resources :albums, only: [:create, :new, :edit, :show, :update, :delete] do
       resources :images, shallow: true
     end
 
