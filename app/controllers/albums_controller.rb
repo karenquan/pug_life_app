@@ -1,4 +1,6 @@
 class AlbumsController < ApplicationController
+  #before_action :authorize, :except [:index, :show]
+
   def index
     if params[:user_id]
       @user = User.find(params[:user_id])
@@ -26,23 +28,23 @@ class AlbumsController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:user_id])
     @album = Album.find(params[:id])
     @images = @album.images
-    @user = User.find(params[:user_id])
   end
 
   def edit
     # add user condition check
-    @album = Album.find(params[:id])
     @user = User.find(params[:user_id])
+    @album = Album.find(params[:id])
   end
 
   def update
     #add user condition check
+    @user = User.find(params[:user_id])
     @album = Album.find(params[:id])
-
     if @album.update_attributes(album_params)
-      redirect_to user_path(params[:user_id])
+      redirect_to user_album_path(:user_id => @user.id, :album_id => @album.id)
     else
       render :edit
     end

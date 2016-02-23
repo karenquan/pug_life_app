@@ -9,17 +9,18 @@ class ImagesController < ApplicationController
   end
 
   def new
+    @user = User.find(params[:user_id])
     @album = Album.find(params[:album_id])
     @image = Image.new
-    @user = User.find(params[:user_id])
   end
 
   def create
+    @user = User.find(params[:user_id])
     @album = Album.find(params[:album_id])
     @image = @album.images.build image_params
 
     if @image.save
-      redirect_to user_path(params[:user_id])
+      redirect_to user_album_path(:user_id => @user.id, :id => @album.id)
     else
       render :new
     end
@@ -38,9 +39,10 @@ class ImagesController < ApplicationController
 
   def update
     # add user condition check
-    @image = Image.find(params[:id])
-    @album = Album.find(params[:album_id])
     @user = User.find(params[:user_id])
+    @album = Album.find(params[:album_id])
+    @image = Image.find(params[:id])
+
     if @image.update_attributes(image_params)
       redirect_to user_album_path(:user_id => @user.id, :id => @album.id)
     else
@@ -50,10 +52,11 @@ class ImagesController < ApplicationController
 
   def destroy
     # add user condition check
-    @image = Image.find(params[:id])
-    @image.destroy
     @user = User.find(params[:user_id])
     @album = Album.find(params[:album_id])
+    @image = Image.find(params[:id])
+    @image.destroy
+
     redirect_to user_album_path(:user_id => @user.id, :id => @album.id)
   end
 

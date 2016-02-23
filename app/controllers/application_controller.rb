@@ -12,6 +12,9 @@ class ApplicationController < ActionController::Base
     end
 
     def authorize
-      redirect_to login_path, alert: 'Not authorized - you must be logged in.' if current_user.nil?
+      #redirect_to root_path, if current_user.id != params[:id]
+      if session[:user_id] != params[:id]
+        redirect_to root_path
+      end
     end
 end

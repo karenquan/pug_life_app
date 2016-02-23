@@ -12,7 +12,6 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      flash[:notice] = 'You have successfully signed up!'
       redirect_to root_path
     else
       render :new
