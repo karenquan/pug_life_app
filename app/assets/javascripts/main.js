@@ -3,12 +3,13 @@ var Images = (function(){
   function _eventHandlers() {
     $('#mainImages .image')
       .mouseenter(function(e){
-          $(this).children().eq(1).removeClass('hide').addClass('show');
+          $(this).find('.image-info').removeClass('hide').addClass('show');
         })
       .mouseleave(function(e) {
-        $(this).children().eq(1).removeClass('show').addClass('hide');
+        $(this).find('.image-info').removeClass('show').addClass('hide');
       });
   }
+
 
   function _init() {
     _eventHandlers();
