@@ -44,7 +44,7 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
     @user = User.find(@album.user_id)
     if @album.update_attributes(album_params)
-      redirect_to user_album_path(:user_id => @user.id, :album_id => @album.id)
+      redirect_to album_path(:id => @album.id)
     else
       render :edit
     end

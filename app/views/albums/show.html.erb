@@ -1,4 +1,7 @@
 <h1><%= @album.title %></h1>
+<p><%= @album.description %></p>
+<span>By: <%= link_to @user.username, user_path(@album.user_id) %></span>
+
 
 <% @images.each do |image| %>
   <div>
