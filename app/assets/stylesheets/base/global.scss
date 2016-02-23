@@ -11,6 +11,55 @@ section, div {
 /*-------------------- IDs ------------------------*/
 
 /*-------------------- CLASSES --------------------*/
+.modal {
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10000;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 0;
+
+  &:after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  .content {
+    font-size: 12px;
+    text-wrap: normal;
+    vertical-align: middle;
+    width: 600px;
+    background-color: #FFF;
+    padding: 20px;
+    margin: 0 auto;
+    position: relative;
+    display: inline-block;
+
+    img {
+      max-height: 400px;
+    }
+
+    .close {
+      background-image: url('close.png');
+      display: inline-block;
+      background-size: 30px 30px;
+      height: 30px;
+      width: 30px;
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      z-index: 10001;
+      cursor: pointer;
+    }
+  }
+}
+
 .hide {
   display: none;
 }

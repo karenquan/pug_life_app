@@ -1,7 +1,11 @@
+
+/*-------------------- IDs ------------------------*/
 #mainImages {
   max-width: 980px;
   margin: 0 auto;
 }
+
+/*-------------------- CLASSES --------------------*/
 
 .image {
   @include transition(0.5s);

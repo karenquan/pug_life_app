@@ -60,6 +60,7 @@ class ImagesController < ApplicationController
     @user = User.find(@album.user_id)
     @image.destroy
 
+    #add custom redirect if deleting from index page
     redirect_to album_path(:id => @album.id)
   end
 
