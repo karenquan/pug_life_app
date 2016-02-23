@@ -1,3 +1,20 @@
-body {
+/*-------------------- TAGS -----------------------*/
 
+body {
+  background-color: #EEE;
+}
+
+section, div {
+  @include box-sizing(border-box);
+}
+
+/*-------------------- IDs ------------------------*/
+
+/*-------------------- CLASSES --------------------*/
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
 }

@@ -27,9 +27,9 @@ class ImagesController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
-    @albums = @user.albums
     @image = Image.find(params[:id])
+    @album = Album.find(@image.album_id)
+    @user = User.find(@album.user_id)
   end
 
   def edit
@@ -65,9 +65,5 @@ class ImagesController < ApplicationController
   private
     def image_params
       params.require(:image).permit(:url, :title, :description,)
-    end
-
-    def user
-
     end
 end

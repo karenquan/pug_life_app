@@ -9,3 +9,22 @@
   -moz-box-sizing: $box-model;
   box-sizing: $box-model;
 }
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin box-shadow($h, $v, $blur, $color, $inset:false) {
+  @if $inset {
+    -webkit-box-shadow: $inset $h $v $blur $color;
+    -moz-box-shadow: $inset $h $v $blur $color;
+    box-shadow: $inset, $h $v $blur $color;
+  }
+  @else {
+    -webkit-box-shadow: $h $v $blur $color;
+    -moz-box-shadow: $h $v $blur $color;
+    box-shadow: $h $v $blur $color;
+  }
+}
