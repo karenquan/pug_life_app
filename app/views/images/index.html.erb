@@ -1,7 +1,7 @@
 <h1>All Images</h1>
 
 <section class="images">
-  <% @images.each do |image| %>
+  <% @images.sort { |a,b| b.updated_at <=> a.updated_at }.each do |image| %>
     <div class="image">
       <div style="background-image: url(<%= image.url %>)">
         <%= image.title %>, <%= image.description %>
