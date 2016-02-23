@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  #before_action :authorize, :except [:index, :show]
+  before_action :authorize_modify_content, only: [:edit]
 
   def index
     if params[:user_id]
@@ -61,5 +61,12 @@ class AlbumsController < ApplicationController
 
   def album_params
     params.require(:album).permit(:title, :description)
+  end
+
+  def authorize_modify_content
+    @album = Album.find(params[:id])
+    if current_user != User.find(@album.user_id)
+      redirect_to root_path
+    end
   end
 end

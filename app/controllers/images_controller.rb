@@ -1,4 +1,5 @@
 class ImagesController < ApplicationController
+  before_action :authorize_modify_content, only: [:edit]
 
   def index
     if params[:album_id]
@@ -65,5 +66,13 @@ class ImagesController < ApplicationController
   private
     def image_params
       params.require(:image).permit(:url, :title, :description,)
+    end
+
+    def authorize_modify_content
+      @image = Image.find(params[:id])
+      @album = Album.find(@image.album_id)
+      if current_user != User.find(@album.user_id)
+        redirect_to root_path
+      end
     end
 end

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authorize_modify_content, only: [:edit]
+
   def index
     @users = User.all
   end
@@ -39,5 +41,11 @@ class UsersController < ApplicationController
   private
     def user_params
       params.require(:user).permit(:first_name, :last_name, :username, :password, :password_confirmation)
+    end
+
+    def authorize_modify_content
+      if current_user != User.find(params[:id])
+        redirect_to root_path
+      end
     end
 end
