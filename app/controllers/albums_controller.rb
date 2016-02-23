@@ -29,20 +29,20 @@ class AlbumsController < ApplicationController
 
   def show
     @album = Album.find(params[:id])
-    @user = User.find(@album.user_id)
+    @user = @album.user
     @images = @album.images
   end
 
   def edit
     # add user condition check
     @album = Album.find(params[:id])
-    @user = User.find(@album.user_id)
+    @user = @album.user
   end
 
   def update
     #add user condition check
     @album = Album.find(params[:id])
-    @user = User.find(@album.user_id)
+    @user = @album.user
     if @album.update_attributes(album_params)
       redirect_to album_path(:id => @album.id)
     else
@@ -65,7 +65,7 @@ class AlbumsController < ApplicationController
 
   def authorize_modify_content
     @album = Album.find(params[:id])
-    if current_user != User.find(@album.user_id)
+    if current_user != @album.user
       redirect_to root_path
     end
   end

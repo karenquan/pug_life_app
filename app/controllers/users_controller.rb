@@ -44,7 +44,7 @@ class UsersController < ApplicationController
     end
 
     def authorize_modify_content
-      if current_user != User.find(params[:id])
+      if (current_user != User.find(params[:id])) && !current_user.is_admin
         redirect_to root_path
       end
     end

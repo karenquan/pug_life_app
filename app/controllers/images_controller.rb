@@ -29,49 +29,33 @@ class ImagesController < ApplicationController
 
   def show
     @image = Image.find(params[:id])
-    @album = Album.find(@image.album_id)
-    @user = User.find(@album.user_id)
   end
 
   def edit
-    # add user condition check
     @image = Image.find(params[:id])
-    @album = Album.find(@image.album_id)
-    @user = User.find(@album.user_id)
   end
 
   def update
-    # add user condition check
     @image = Image.find(params[:id])
-    @album = Album.find(@image.album_id)
-    @user = User.find(@album.user_id)
 
     if @image.update_attributes(image_params)
-      redirect_to album_path(:id => @album.id)
+      redirect_to album_path(@image.album)
     else
       render :edit
     end
   end
 
   def destroy
-    # add user condition check
     @image = Image.find(params[:id])
-    @album = Album.find(@image.album_id)
-    @user = User.find(@album.user_id)
     @image.destroy
 
-    #add custom redirect if deleting from index page
-    redirect_to album_path(:id => @album.id)
+    redirect_to album_path(@image.album)
   end
 
   def admin_destroy
-    # add user condition check
     @image = Image.find(params[:id])
-    @album = Album.find(@image.album_id)
-    @user = User.find(@album.user_id)
     @image.destroy
 
-    #add custom redirect if deleting from index page
     redirect_to root_path
   end
 
@@ -82,8 +66,7 @@ class ImagesController < ApplicationController
 
     def authorize_modify_content
       @image = Image.find(params[:id])
-      @album = Album.find(@image.album_id)
-      if current_user != User.find(@album.user_id)
+      if current_user != @image.album.user
         redirect_to root_path
       end
     end
