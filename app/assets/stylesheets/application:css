@@ -369,17 +369,6 @@ th {
   padding: 0; }
 
 .image {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border: 1px solid blue;
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  transition: 0.5s; }
-  .image > div {
-    background-size: cover;
-    background-position: center center;
-    width: 200px;
-    height: 150px; }
+  border: 1px solid green; }
 
-/*# sourceMappingURL=application.css.map */
+/*# sourceMappingURL=application:css.map */

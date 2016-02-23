@@ -1,0 +1,12 @@
+.image {
+  @include box-sizing(border-box);
+  border: 1px solid blue;
+  @include transition(0.5s);
+
+  & > div {
+    background-size: cover;
+    background-position: center center;
+    width: 200px;
+    height: 150px;
+  }
+}

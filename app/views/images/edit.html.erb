@@ -1,3 +1,17 @@
 <h1>Edit Image</h1>
 
-<%= render :partial => 'form', :locals => { :submit_label => 'Update' } %>
+<%= form_for @image do |f| %>
+    <div>
+      <%= f.label :url, 'Image URL' %>
+      <%= f.text_field :url %>
+    </div>
+    <div>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+    <%= f.submit 'Update' %>
+<% end %>

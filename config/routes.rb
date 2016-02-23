@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   resources :images, only: [:index]
 
   resources :users do
-    resources :albums do
-      resources :images#, shallow: true
+    resources :albums, shallow:true do
+      resources :images, shallow: true
     end
 
     resources :favorites

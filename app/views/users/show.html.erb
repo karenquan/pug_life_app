@@ -2,7 +2,7 @@
 
 <% @albums.each do |album| %>
   <div>
-    <%= link_to album.title, user_album_path(:user_id => @user.id, :id => album.id) %>
+    <%= link_to album.title, album_path(:id => album.id) %>
   </div>
 <% end %>
 

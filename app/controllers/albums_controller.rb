@@ -28,21 +28,21 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
     @album = Album.find(params[:id])
+    @user = User.find(@album.user_id)
     @images = @album.images
   end
 
   def edit
     # add user condition check
-    @user = User.find(params[:user_id])
     @album = Album.find(params[:id])
+    @user = User.find(@album.user_id)
   end
 
   def update
     #add user condition check
-    @user = User.find(params[:user_id])
     @album = Album.find(params[:id])
+    @user = User.find(@album.user_id)
     if @album.update_attributes(album_params)
       redirect_to user_album_path(:user_id => @user.id, :album_id => @album.id)
     else
@@ -54,7 +54,7 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
     # add user condition check
     @album.destroy
-    redirect_to user_path(params[:user_id])
+    redirect_to user_path(@album.user_id)
   end
 
   private

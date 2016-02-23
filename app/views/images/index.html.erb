@@ -1,7 +1,12 @@
 <h1>All Images</h1>
 
-<% @images.each do |image| %>
-  <div>
-    <%= image.title %>, <%= image.description %>
-  </div>
-<% end %>
+<section class="images">
+  <% @images.each do |image| %>
+    <div class="image">
+      <div style="background-image: url(<%= image.url %>)">
+        <%= image.title %>, <%= image.description %>
+      </div>
+    </div>
+  <% end %>
+</section>
+
