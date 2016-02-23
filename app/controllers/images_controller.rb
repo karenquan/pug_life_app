@@ -64,6 +64,17 @@ class ImagesController < ApplicationController
     redirect_to album_path(:id => @album.id)
   end
 
+  def admin_destroy
+    # add user condition check
+    @image = Image.find(params[:id])
+    @album = Album.find(@image.album_id)
+    @user = User.find(@album.user_id)
+    @image.destroy
+
+    #add custom redirect if deleting from index page
+    redirect_to root_path
+  end
+
   private
     def image_params
       params.require(:image).permit(:url, :title, :description,)

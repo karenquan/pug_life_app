@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :favorites
   end
 
+  delete '/images/:id/admin' => 'images#admin_destroy', as: :admin_destroy
+
   get '/signup', to: 'users#new'
 
   resources :sessions, only: [:new, :create, :destroy]
