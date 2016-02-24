@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authorize_modify_content, only: [:edit]
+  before_action :authorize_modify_content, only: [:edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -30,6 +30,13 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
+
+    if @user.update_attributes(user_params)
+      redirect_to user_path(params[:id])
+    else
+      render :edit
+    end
   end
 
   def destroy
