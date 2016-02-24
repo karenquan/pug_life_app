@@ -17,8 +17,19 @@
         <span class="image-username hide"><%= image.album.user.username %></span>
         <span class="image-user-path hide">By: <%= link_to image.album.user.username, user_path(image.album.user.id) %></span>
         <span class="image-url hide"><%= image.url %></span>
-        <!-- <span class="add-favorite-button"><%= link_to 'Favorite', user_add_favorite_path(current_user, image), method: :put %></span> -->
-        <span class="remove-favorite-button"><%= link_to 'Remove Favorite', user_remove_favorite_path(current_user, image), method: :delete %></span>
+        <% if current_user %>
+          <% @favorite = false %> <!-- reset favorite variable -->
+          <% current_user.favorites.each do |favorite| %>
+            <% if favorite.id == image.id then @favorite = true %> <!-- check if image is in user's favorites -->
+            <% end %>
+          <% end %>
+
+          <% if @favorite %> <!-- display remove or add favorite button depending if user has favorited image or not -->
+              <span class="remove-favorite-button"><%= link_to 'Remove Favorite', user_remove_favorite_path(current_user, image), method: :delete %></span>
+          <% else %>
+            <span class="add-favorite-button"><%= link_to 'Favorite', user_add_favorite_path(current_user, image), method: :put %></span>
+          <% end %>
+        <% end %>
       </div>
       <!-- <div class="modal hide">
         <div class="content">
@@ -32,4 +43,6 @@
     </div>
   <% end %>
 </section>
+
+
 

@@ -2,11 +2,16 @@ class ImagesController < ApplicationController
   before_action :authorize_modify_content, only: [:edit, :update, :destroy]
 
   def index
+
     if params[:album_id]
       @album = Album.find(params[:album_id])
       @images = @album.images
     else
       @images = Image.all
+      @favorite = false
+      if current_user
+        @favorites = current_user.favorites
+      end
     end
   end
 
