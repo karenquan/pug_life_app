@@ -465,6 +465,9 @@ a {
 .show {
   display: block; }
 
+input.error, textarea.error {
+  border: 1px solid #CD5555; }
+
 /*-------------------- IDs ------------------------*/
 #mainImages {
   max-width: 980px;
