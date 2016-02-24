@@ -45,13 +45,23 @@ var Images = (function(){
     //build dynamic image modal
     $modalContainer = $('<div />', { 'class': 'modal' });
     $modalContent = $('<div />', { 'class': 'content' });
+      $favoriteButton = '';
       $closeButton = $('<div />', { 'class': 'close' });
       $imageTitle = $('<h3 />', { text: $(this).find('h3').html() });
       $imageDescription = $('<p />', { text: $(this).find('.image-description').html() });
       $imageDate = $('<p />', { text: $(this).find('.image-date').html() });
       $image = $('<img />', { src: $(this).find('.image-url').html(), alt: $(this).find('h3').html() });
       $userPath = $('<p />', { html: $(this).find('.image-user-path').html() });
-      $modalContent.append($closeButton).append($imageTitle).append($userPath).append($image).append($imageDescription);
+
+      $addFavoriteButton = $(this).find('.add-favorite-button');
+      $removeFavoriteButton = $(this).find('.remove-favorite-button');
+      if ($addFavoriteButton.length) {
+        $favoriteButton = $('<span />', { 'class': 'add-favorite-button', html: $addFavoriteButton.html() });
+      }
+      if ($removeFavoriteButton.length) {
+        $favoriteButton = $('<span />', { 'class': 'add-favorite-button', html: $removeFavoriteButton.html() });
+      }
+      $modalContent.append($closeButton).append($imageTitle).append($userPath).append($image).append($imageDescription).append($favoriteButton);
     $modalContainer.append($modalContent);
     $('body').append($modalContainer);
 
