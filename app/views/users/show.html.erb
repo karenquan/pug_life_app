@@ -1,10 +1,13 @@
 <h1><%= @user.username %></h1>
 
-<% @albums.each do |album| %>
-  <div>
-    <%= link_to album.title, album_path(:id => album.id) %>
-  </div>
-<% end %>
+<div id="userAlbums">
+  <h2>Albums</h2>
+  <% @albums.each do |album| %>
+    <div>
+      <%= link_to album.title, album_path(:id => album.id) %>
+    </div>
+  <% end %>
+</div>
 
 <a class="add-button">Add Album</a>
 <div class="add modal hide">
@@ -24,8 +27,8 @@
   </div>
 </div>
 
-<h2>Favorites</h2>
-<div id="favorites">
+<div id="userFavorites">
+  <h2>Favorites</h2>
   <% @user.favorites.each do |favorite| %>
     <div class="image">
       <% @favoriteimage = Image.find(favorite.id) %>
@@ -42,8 +45,8 @@
   <% end %>
 </div>
 
-<h2>All Images</h2>
 <div id="allUserImages">
+  <h2>All Images</h2>
   <% @albums.each do |album| %>
     <% album.images.each do |image| %>
       <div class="image">

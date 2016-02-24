@@ -412,7 +412,7 @@ a {
     .modal .content img {
       max-height: 400px; }
     .modal .content .close {
-      background-image: url("close.png");
+      background-image: url("close_red.png");
       display: inline-block;
       background-size: 30px 30px;
       height: 30px;

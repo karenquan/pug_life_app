@@ -4,8 +4,7 @@
 
 <% @images.sort { |a,b| b.updated_at <=> a.updated_at }.each do |image| %>
   <div class="image">
-      <div class="image-display" style="background-image: url(<%= image.url %>)">
-      </div>
+      <div class="image-display" style="background-image: url(<%= image.url %>)"></div>
       <div class="image-info hide">
         <h3><%= image.title %></h3>
         <p class="image-description"><%= image.description %></p>
