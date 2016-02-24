@@ -52,14 +52,16 @@ class ImagesController < ApplicationController
 
   def destroy
     @image = Image.find(params[:id])
-    @image.destroy
+    @image.url.nil
+    # @image.destroy
 
     redirect_to album_path(@image.album)
   end
 
   def admin_destroy
     @image = Image.find(params[:id])
-    @image.destroy
+    @image.url = nil #for paperclip
+    # @image.destroy
 
     redirect_to root_path
   end
