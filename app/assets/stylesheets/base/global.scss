@@ -56,6 +56,10 @@ section, div {
       right: -10px;
       z-index: 10001;
       cursor: pointer;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }

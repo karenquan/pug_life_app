@@ -12,10 +12,13 @@
       </div>
       <div class="image-info hide">
         <h3><%= image.title %></h3>
-        <p><%= image.description %></p>
-        <p><%= image.created_at.strftime("%B %d, %Y") %></p>
+        <p class="image-description"><%= image.description %></p>
+        <p class="image-date"><%= image.created_at.strftime("%B %d, %Y") %></p>
+        <span class="image-username hide"><%= image.album.user.username %></span>
+        <span class="image-user-path hide">By: <%= link_to image.album.user.username, user_path(image.album.user.id) %></span>
+        <span class="image-url hide"><%= image.url %></span>
       </div>
-      <div class="modal hide">
+      <!-- <div class="modal hide">
         <div class="content">
           <div class="close"></div>
           <h4><%= image.title %></h4>
@@ -23,7 +26,7 @@
           <img src="<%= image.url %>" alt="<%= image.title %>">
           <p><%= image.description %></p>
         </div>
-      </div>
+      </div> -->
     </div>
   <% end %>
 </section>

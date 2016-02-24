@@ -418,6 +418,8 @@ section, div {
       right: -10px;
       z-index: 10001;
       cursor: pointer; }
+      .modal .content .close:hover {
+        cursor: pointer; }
 
 .hide {
   display: none; }
