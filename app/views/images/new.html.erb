@@ -1,9 +1,9 @@
 <h1>Add Image</h1>
 
-<%= form_for [@album, @image] do |f| %>
+<%= form_for [@album, @image], html: { multipart: true } do |f| %>
     <div>
-      <%= f.label :url, 'Image URL' %>
-      <%= f.text_field :url %>
+      <%= f.label :url_file_name, 'Image URL' %>
+      <%= form.file_field :url_file_name %>
     </div>
     <div>
       <%= f.label :title %>

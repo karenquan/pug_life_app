@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221233956) do
+ActiveRecord::Schema.define(version: 20160224175516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,14 +27,17 @@ ActiveRecord::Schema.define(version: 20160221233956) do
   add_index "albums", ["user_id"], name: "index_albums_on_user_id", using: :btree
 
   create_table "images", force: :cascade do |t|
-    t.string   "url"
     t.string   "title"
     t.text     "description"
     t.string   "tags"
     t.boolean  "flag"
     t.integer  "album_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "url_file_name"
+    t.string   "url_content_type"
+    t.integer  "url_file_size"
+    t.datetime "url_updated_at"
   end
 
   add_index "images", ["album_id"], name: "index_images_on_album_id", using: :btree
@@ -52,10 +55,13 @@ ActiveRecord::Schema.define(version: 20160221233956) do
     t.string   "last_name"
     t.string   "username"
     t.string   "password_digest"
-    t.string   "profile_image_url"
     t.boolean  "is_admin"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "profile_image_file_name"
+    t.string   "profile_image_content_type"
+    t.integer  "profile_image_file_size"
+    t.datetime "profile_image_updated_at"
   end
 
   add_foreign_key "albums", "users"
