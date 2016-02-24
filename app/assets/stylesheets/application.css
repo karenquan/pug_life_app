@@ -378,6 +378,9 @@ section, div {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
+a {
+  text-decoration: none; }
+
 /*-------------------- IDs ------------------------*/
 /*-------------------- CLASSES --------------------*/
 .modal {
@@ -422,6 +425,40 @@ section, div {
       .modal .content .close:hover {
         cursor: pointer; }
 
+.add-button, .edit-button, .delete-button {
+  display: inline-block;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  padding: 15px 30px;
+  color: #FFF;
+  width: 100px;
+  text-align: center; }
+  .add-button:hover, .edit-button:hover, .delete-button:hover {
+    cursor: pointer; }
+
+.add-button {
+  border: 1px solid #3CB371;
+  background-color: #3CB371; }
+  .add-button:hover {
+    border: 1px solid #339961;
+    background-color: #339961; }
+
+.edit-button {
+  border: 1px solid #7EC0EE;
+  background-color: #7EC0EE; }
+  .edit-button:hover {
+    border: 1px solid #61b1ea;
+    background-color: #61b1ea; }
+
+.delete-button {
+  border: 1px solid #CD5555;
+  background-color: #CD5555; }
+  .delete-button:hover {
+    border: 1px solid #c63939;
+    background-color: #c63939; }
+
 .hide {
   display: none; }
 
@@ -450,6 +487,7 @@ section, div {
   display: inline-block;
   padding: 10px 10px 20px 10px;
   vertical-align: top;
+  margin: 10px 0 0 0;
   position: relative;
   cursor: pointer; }
   .image p {
@@ -483,22 +521,6 @@ section, div {
       text-overflow: ellipsis;
       max-width: 200px;
       max-height: 140px; }
-
-.add-button {
-  display: block;
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  transition: 0.5s;
-  outline: none;
-  border: 1px solid #3CB371;
-  background-color: #3CB371;
-  padding: 15px 30px;
-  color: #FFF;
-  width: 100px; }
-  .add-button:hover {
-    cursor: pointer;
-    border: 1px solid #339961;
-    background-color: #339961; }
 
 .admin-delete-image {
   position: absolute;

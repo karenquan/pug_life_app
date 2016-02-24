@@ -21,7 +21,6 @@
     </div>
 <% end %>
 
-<a class="add-button">Add Image</a>
 <div class="add modal hide">
   <div class="content">
     <div class="close"></div>
@@ -46,31 +45,24 @@
 <div class="edit modal hide">
   <div class="content">
     <div class="close"></div>
-      <%= form_for Image.find(@imageId) do |f| %>
-        <div>
-          <%= f.label :url, 'Image URL' %>
-          <%= f.text_field :url %>
-        </div>
-        <div>
-          <%= f.label :title %>
-          <%= f.text_field :title %>
-        </div>
-        <div>
-          <%= f.label :description %>
-          <%= f.text_area :description %>
-        </div>
-        <%= f.submit 'Update' %>
+    <%= form_for @album do |f| %>
+      <div>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+      <div>
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+      </div>
+      <%= f.submit 'Update' %>
     <% end %>
   </div>
 </div>
 
-<!-- add condition if user is current_user, allow edit/delete -->
 <% if current_user.id == @album.user_id %>
   <div>
-    <%= link_to 'Edit Album', edit_album_path(:id => @album.id) %>
-   |
-  <%= link_to 'Delete Album', album_path(:id => @album.id), method: :delete, data: { confirm: 'Are you sure you want to remove this album?' } %>
-   |
-  <%= link_to 'Back to Profile', user_path(@album.user.id) %>
+    <a class="add-button">Add Image</a>
+    <a class="edit-button">Edit Album</a>
+    <%= link_to 'Delete Album', album_path(:id => @album.id), class: 'delete-button', method: :delete, data: { confirm: 'Are you sure you want to remove this album?' } %>
   </div>
 <% end %>

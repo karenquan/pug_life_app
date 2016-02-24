@@ -12,14 +12,14 @@ var Images = (function(){
 
   function editButtonClickEvent(e) {
     e.stopPropagation();
-
+    console.log('click');
     // $imageId = $(this).data('image-id');
 
-    // $('.edit.modal').removeClass('hide');
+    $('.edit.modal').removeClass('hide');
 
-    // $('.close').on('click', function(e) {
-    //   $(this).closest('.modal').addClass('hide');
-    // });
+    $('.close').on('click', function(e) {
+      $(this).closest('.modal').addClass('hide');
+    });
   }
 
   function addButtonClickEvent() {

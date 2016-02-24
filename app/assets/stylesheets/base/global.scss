@@ -1,6 +1,7 @@
 /*-------------------- COLORS----------------------*/
 $pink: #FF82AB;
 $skyblue: #7EC0EE;
+$skybluehover: #61b1ea;
 $turquoise: #79CDCD;
 $green: #3CB371;
 $greenhover: #339961;
@@ -17,6 +18,10 @@ body {
 
 section, div {
   @include box-sizing(border-box);
+}
+
+a {
+  text-decoration: none;
 }
 
 /*-------------------- IDs ------------------------*/
@@ -72,6 +77,50 @@ section, div {
         cursor: pointer;
       }
     }
+  }
+}
+
+.add-button, .edit-button, .delete-button {
+  display: inline-block;
+  @include transition(0.5s);
+  outline: none;
+  padding: 15px 30px;
+  color: #FFF;
+  width: 100px;
+  text-align: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.add-button {
+  border: 1px solid $green;
+  background-color: $green;
+
+  &:hover {
+    border: 1px solid $greenhover;
+    background-color: $greenhover;
+  }
+}
+
+.edit-button {
+  border: 1px solid $skyblue;
+  background-color: $skyblue;
+
+  &:hover {
+    border: 1px solid $skybluehover;
+    background-color: $skybluehover;
+  }
+}
+
+.delete-button {
+  border: 1px solid $red;
+  background-color: $red;
+
+  &:hover {
+    border: 1px solid $redhover;
+    background-color: $redhover;
   }
 }
 

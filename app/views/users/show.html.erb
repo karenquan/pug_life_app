@@ -24,3 +24,41 @@
   </div>
 </div>
 
+<h2>Favorites</h2>
+<div id="favorites">
+  <% @user.favorites.each do |favorite| %>
+    <div class="image">
+      <% @favoriteimage = Image.find(favorite.id) %>
+      <div class="image-display" style="background-image: url(<%= @favoriteimage.url %>)"></div>
+      <div class="image-info hide">
+        <h3><%= @favoriteimage.title %></h3>
+        <p class="image-description"><%= @favoriteimage.description %></p>
+        <p class="image-date"><%= @favoriteimage.created_at.strftime("%B %d, %Y") %></p>
+        <span class="image-username hide"><%= @favoriteimage.album.user.username %></span>
+        <span class="image-user-path hide">By: <%= link_to @favoriteimage.album.user.username, user_path(@favoriteimage.album.user.id) %></span>
+        <span class="image-url hide"><%= @favoriteimage.url %></span>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<h2>All Images</h2>
+<div id="allUserImages">
+  <% @albums.each do |album| %>
+    <% album.images.each do |image| %>
+      <div class="image">
+        <div class="image-display" style="background-image: url(<%= image.url %>)"></div>
+          <div class="image-info hide">
+            <h3><%= image.title %></h3>
+            <p class="image-description"><%= image.description %></p>
+            <p class="image-date"><%= image.created_at.strftime("%B %d, %Y") %></p>
+            <span class="image-username hide"><%= image.album.user.username %></span>
+            <span class="image-user-path hide">By: <%= link_to image.album.user.username, user_path(image.album.user.id) %></span>
+            <span class="image-url hide"><%= image.url %></span>
+          </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+
