@@ -9,21 +9,38 @@
   <% end %>
 </div>
 
-<a class="add-button">Add Album</a>
+<% if current_user %>
+  <% if current_user.id == @user.id %>
+    <%= link_to 'Add Album', new_user_album_path(@user), class: "add-button" %>
+    <!-- <a class="add-button">Add Album</a> -->
+  <% end %>
+<% end %>
+
 <div class="add modal hide">
   <div class="content">
     <div class="close"></div>
     <%= form_for [@user, @album] do |f| %>
-    <div>
-      <%= f.label :title %>
-      <%= f.text_field :title %>
-    </div>
-    <div>
-      <%= f.label :description %>
-      <%= f.text_field :description %>
-    </div>
-    <%= f.submit 'Add Album' %>
-  <% end %>
+      <div>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+      <div>
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+      </div>
+      <%= f.submit 'Add Album' %>
+
+      <% if @user.errors.any? %>
+        <div class="error_messages">
+          <h2>Form is invalid</h2>
+          <ul>
+            <% for message in @user.errors.full_messages %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
 

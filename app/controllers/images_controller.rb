@@ -18,6 +18,7 @@ class ImagesController < ApplicationController
   def new
     @album = Album.find(params[:album_id])
     @image = Image.new
+    @user = User.find(@album.user_id)
   end
 
   def create
@@ -52,8 +53,8 @@ class ImagesController < ApplicationController
 
   def destroy
     @image = Image.find(params[:id])
-    @image.url.nil
-    # @image.destroy
+    @image.url = nil
+    @image.destroy
 
     redirect_to album_path(@image.album)
   end
@@ -61,7 +62,7 @@ class ImagesController < ApplicationController
   def admin_destroy
     @image = Image.find(params[:id])
     @image.url = nil
-    # @image.destroy
+    @image.destroy
 
     redirect_to root_path
   end

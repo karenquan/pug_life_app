@@ -3,7 +3,7 @@
 <%= form_for [@album, @image], html: { multipart: true } do |f| %>
     <div>
       <%= f.label :url, 'Image URL' %>
-      <%= form.file_field :url %>
+      <%= f.file_field :url %>
     </div>
     <div>
       <%= f.label :title %>
@@ -14,5 +14,16 @@
       <%= f.text_area :description %>
     </div>
     <%= f.submit 'Submit' %>
+
+    <% if @user.errors.any? %>
+      <div class="error_messages">
+        <h2>Form is invalid</h2>
+        <ul>
+          <% for message in @user.errors.full_messages %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 <% end %>
 

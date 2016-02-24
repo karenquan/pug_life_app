@@ -6,8 +6,8 @@ var Images = (function(){
 
     $('.image-display').on('click', albumImageClickEvent);
     $('.image-info').on('click', imageClickEvent);
-    $('.add-button').on('click', addButtonClickEvent);
-    $('.edit-button').on('click', editButtonClickEvent);
+    // $('.add-button').on('click', addButtonClickEvent);
+    // $('.edit-button').on('click', editButtonClickEvent);
   }
 
   function editButtonClickEvent(e) {

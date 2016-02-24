@@ -79,12 +79,12 @@
   background-image: url('heart.png');
   background-size: cover;
   background-position: center center;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 13px;
   z-index: 200;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 4px;
+  right: 4px;
 }
 
 @media (max-width: 973px) {
