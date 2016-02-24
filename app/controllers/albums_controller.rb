@@ -23,7 +23,8 @@ class AlbumsController < ApplicationController
     if @album.save
       redirect_to user_path(params[:user_id])
     else
-      render :new
+      # render :new
+      render :template => "users/show"
     end
   end
 

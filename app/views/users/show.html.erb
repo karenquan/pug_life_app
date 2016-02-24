@@ -6,4 +6,21 @@
   </div>
 <% end %>
 
-<%= link_to 'Add Album', new_user_album_path(@user) %>
+<a class="add-album">Add Album</a>
+<div class="modal hide">
+  <div class="content">
+    <div class="close"></div>
+    <%= form_for [@user, @album] do |f| %>
+    <div>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </div>
+    <%= f.submit 'Add Album' %>
+  <% end %>
+  </div>
+</div>
+
