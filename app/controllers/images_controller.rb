@@ -60,7 +60,7 @@ class ImagesController < ApplicationController
 
   def admin_destroy
     @image = Image.find(params[:id])
-    @image.url = nil #for paperclip
+    @image.url = nil
     # @image.destroy
 
     redirect_to root_path
