@@ -73,13 +73,13 @@ var Images = (function(){
     });
   }
 
-  function albumImageClickEvent() {
-    //build dynamic image modal
+  function albumImageClickEvent() { //event for clicking an image not on home page
     $imageInfo = $(this).siblings('.image-info');
     $modalContainer = $('<div />', { 'class': 'modal' });
     $modalContent = $('<div />', { 'class': 'content' });
       $closeButton = $('<div />', { 'class': 'close' });
       $imageTitle = $('<h3 />', { text: $imageInfo.find('h3').html() });
+      $imageAlbum = $('<p />', { html: $imageInfo.find('.image-album').html() });
       $imageDescription = $('<p />', { text: $imageInfo.find('.image-description').html() });
       $imageDate = $('<p />', { text: $imageInfo.find('.image-date').html() });
       $image = $('<img />', { src: $imageInfo.find('.image-url').html(), alt: $(this).find('h3').html() });
@@ -94,7 +94,7 @@ var Images = (function(){
         $favoriteButton = $('<span />', { 'class': 'remove-favorite-button', html: $removeFavoriteButton.html() });
       }
 
-      $modalContent.append($closeButton).append($imageTitle).append($userPath).append($image).append($imageDescription).append($favoriteButton);
+      $modalContent.append($closeButton).append($imageTitle).append($imageAlbum).append($userPath).append($image).append($imageDescription).append($favoriteButton);
     $modalContainer.append($modalContent);
     $('body').append($modalContainer);
 

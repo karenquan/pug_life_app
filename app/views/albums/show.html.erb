@@ -4,50 +4,50 @@
 
 <% @images.sort { |a,b| b.updated_at <=> a.updated_at }.each do |image| %>
   <div class="image">
-      <div class="image-display" style="background-image: url(<%= image.url %>)"></div>
-        <% if current_user %>
-          <% @favorite = false %> <!-- reset favorite variable -->
-          <% current_user.favorites.each do |favorite| %>
-            <% if favorite.id == image.id then @favorite = true %> <!-- check if image is in user's favorites -->
-            <% end %>
-          <% end %>
-          <% if @favorite %> <!-- display remove or add favorite button depending if user has favorited image or not -->
-            <div class="favorite-icon"></div>
+    <div class="image-display" style="background-image: url(<%= image.url %>)"></div>
+    <% if current_user %>
+      <% @favorite = false %> <!-- reset favorite variable -->
+      <% current_user.favorites.each do |favorite| %>
+        <% if favorite.id == image.id then @favorite = true %> <!-- check if image is in user's favorites -->
+        <% end %>
+      <% end %>
+      <% if @favorite %> <!-- display remove or add favorite button depending if user has favorited image or not -->
+        <div class="favorite-icon"></div>
+      <% end %>
+    <% end %>
+
+    <div class="image-info hide">
+      <h3><%= image.title %></h3>
+      <p class="image-description"><%= image.description %></p>
+      <p class="image-date"><%= image.created_at.strftime("%B %d, %Y") %></p>
+      <span class="image-album hide">in <%= link_to image.album.title, album_path(image.album_id) %></span>
+      <span class="image-username hide"><%= image.album.user.username %></span>
+      <span class="image-user-path hide">By: <%= link_to image.album.user.username, user_path(image.album.user.id) %> on <%= image.created_at.strftime("%B %d, %Y") %></span>
+      <span class="image-url hide"><%= image.url %></span>
+      <% if current_user %>
+        <% @favorite = false %> <!-- reset favorite variable -->
+        <% current_user.favorites.each do |favorite| %>
+          <% if favorite.id == image.id then @favorite = true %> <!-- check if image is in user's favorites -->
           <% end %>
         <% end %>
-
-        <div class="image-info hide">
-          <h3><%= image.title %></h3>
-          <p class="image-description"><%= image.description %></p>
-          <p class="image-date"><%= image.created_at.strftime("%B %d, %Y") %></p>
-          <span class="image-album hide">in <%= link_to image.album.title, album_path(image.album_id) %></span>
-          <span class="image-username hide"><%= image.album.user.username %></span>
-          <span class="image-user-path hide">By: <%= link_to image.album.user.username, user_path(image.album.user.id) %> on <%= image.created_at.strftime("%B %d, %Y") %></span>
-          <span class="image-url hide"><%= image.url %></span>
-          <% if current_user %>
-            <% @favorite = false %> <!-- reset favorite variable -->
-            <% current_user.favorites.each do |favorite| %>
-              <% if favorite.id == image.id then @favorite = true %> <!-- check if image is in user's favorites -->
-              <% end %>
-            <% end %>
-            <% if @favorite %> <!-- display remove or add favorite button depending if user has favorited image or not -->
-              <span class="remove-favorite-button hide"><%= link_to 'Remove Favorite', user_remove_favorite_path(current_user, image), method: :delete %></span>
-            <% else %>
-              <span class="add-favorite-button hide"><%= link_to 'Favorite', user_add_favorite_path(current_user, image), method: :put %></span>
-            <% end %>
-          <% end %>
-        </div>
-
-      <% if current_user %>
-        <% if current_user.id == @album.user_id %>
-          <% @imageId = image.id %>
-          <p><%= link_to 'Edit', edit_image_path(image.id) %><!-- <a class="edit-button" data-image-id="<%= image.id %>">Edit</a> --> | <%= link_to 'Delete', image_path(:id => image.id), method: :delete, data: { confirm: 'Are you sure you want to delete this image?' } %></p>
+        <% if @favorite %> <!-- display remove or add favorite button depending if user has favorited image or not -->
+          <span class="remove-favorite-button hide"><%= link_to 'Remove Favorite', user_remove_favorite_path(current_user, image), method: :delete %></span>
+        <% else %>
+          <span class="add-favorite-button hide"><%= link_to 'Favorite', user_add_favorite_path(current_user, image), method: :put %></span>
         <% end %>
       <% end %>
     </div>
+
+    <% if current_user %> <!-- allow user to edit images if user is album owner -->
+      <% if current_user.id == @album.user_id %>
+        <% @imageId = image.id %>
+        <p><%= link_to 'Edit', edit_image_path(image.id) %><!-- <a class="edit-button" data-image-id="<%= image.id %>">Edit</a> --> | <%= link_to 'Delete', image_path(:id => image.id), method: :delete, data: { confirm: 'Are you sure you want to delete this image?' } %></p>
+      <% end %>
+    <% end %>
+  </div>
 <% end %>
 
-<% if current_user %>
+<% if current_user %> <!-- add actions if user is album owner -->
   <% if current_user.id == @album.user_id %>
     <div>
       <%= link_to 'Add Image', new_album_image_path(@album), class: 'add-button' %>

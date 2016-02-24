@@ -12,7 +12,6 @@
 <% if current_user %>
   <% if current_user.id == @user.id %>
     <%= link_to 'Add Album', new_user_album_path(@user), class: "add-button" %>
-    <!-- <a class="add-button">Add Album</a> -->
   <% end %>
 <% end %>
 
