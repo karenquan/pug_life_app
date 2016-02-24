@@ -5,14 +5,39 @@
 <% @images.sort { |a,b| b.updated_at <=> a.updated_at }.each do |image| %>
   <div class="image">
       <div class="image-display" style="background-image: url(<%= image.url %>)"></div>
-      <div class="image-info hide">
-        <h3><%= image.title %></h3>
-        <p class="image-description"><%= image.description %></p>
-        <p class="image-date"><%= image.created_at.strftime("%B %d, %Y") %></p>
-        <span class="image-username hide"><%= image.album.user.username %></span>
-        <span class="image-user-path hide">By: <%= link_to image.album.user.username, user_path(image.album.user.id) %></span>
-        <span class="image-url hide"><%= image.url %></span>
-      </div>
+        <% if current_user %>
+          <% @favorite = false %> <!-- reset favorite variable -->
+          <% current_user.favorites.each do |favorite| %>
+            <% if favorite.id == image.id then @favorite = true %> <!-- check if image is in user's favorites -->
+            <% end %>
+          <% end %>
+          <% if @favorite %> <!-- display remove or add favorite button depending if user has favorited image or not -->
+            <div class="favorite-icon"></div>
+          <% end %>
+        <% end %>
+
+        <div class="image-info hide">
+          <h3><%= image.title %></h3>
+          <p class="image-description"><%= image.description %></p>
+          <p class="image-date"><%= image.created_at.strftime("%B %d, %Y") %></p>
+          <span class="image-album hide">in <%= link_to image.album.title, album_path(image.album_id) %></span>
+          <span class="image-username hide"><%= image.album.user.username %></span>
+          <span class="image-user-path hide">By: <%= link_to image.album.user.username, user_path(image.album.user.id) %> on <%= image.created_at.strftime("%B %d, %Y") %></span>
+          <span class="image-url hide"><%= image.url %></span>
+          <% if current_user %>
+            <% @favorite = false %> <!-- reset favorite variable -->
+            <% current_user.favorites.each do |favorite| %>
+              <% if favorite.id == image.id then @favorite = true %> <!-- check if image is in user's favorites -->
+              <% end %>
+            <% end %>
+            <% if @favorite %> <!-- display remove or add favorite button depending if user has favorited image or not -->
+              <span class="remove-favorite-button hide"><%= link_to 'Remove Favorite', user_remove_favorite_path(current_user, image), method: :delete %></span>
+            <% else %>
+              <span class="add-favorite-button hide"><%= link_to 'Favorite', user_add_favorite_path(current_user, image), method: :put %></span>
+            <% end %>
+          <% end %>
+        </div>
+
       <% if current_user %>
         <% if current_user.id == @album.user_id %>
           <% @imageId = image.id %>
@@ -21,57 +46,6 @@
       <% end %>
     </div>
 <% end %>
-
-<div class="add modal hide">
-  <div class="content">
-    <div class="close"></div>
-    <%= form_for [@album, @image] do |f| %>
-      <div>
-        <%= f.label :url, 'Image URL' %>
-        <%= f.file_field :url %>
-      </div>
-      <div>
-        <%= f.label :title %>
-        <%= f.text_field :title %>
-      </div>
-      <div>
-        <%= f.label :description %>
-        <%= f.text_area :description %>
-      </div>
-      <%= f.submit 'Submit' %>
-
-      <% if current_user %>
-        <% if current_user.errors.any? %>
-          <div class="error_messages">
-            <h2>Form is invalid</h2>
-            <ul>
-              <% for message in @user.errors.full_messages %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-      <% end %>
-    <% end %>
-  </div>
-</div>
-
-<div class="edit modal hide">
-  <div class="content">
-    <div class="close"></div>
-    <%= form_for @album do |f| %>
-      <div>
-        <%= f.label :title %>
-        <%= f.text_field :title %>
-      </div>
-      <div>
-        <%= f.label :description %>
-        <%= f.text_field :description %>
-      </div>
-      <%= f.submit 'Update' %>
-    <% end %>
-  </div>
-</div>
 
 <% if current_user %>
   <% if current_user.id == @album.user_id %>

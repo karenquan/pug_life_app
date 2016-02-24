@@ -75,15 +75,26 @@ var Images = (function(){
 
   function albumImageClickEvent() {
     //build dynamic image modal
+    $imageInfo = $(this).siblings('.image-info');
     $modalContainer = $('<div />', { 'class': 'modal' });
     $modalContent = $('<div />', { 'class': 'content' });
       $closeButton = $('<div />', { 'class': 'close' });
-      $imageTitle = $('<h3 />', { text: $(this).next().find('h3').html() });
-      $imageDescription = $('<p />', { text: $(this).next().find('.image-description').html() });
-      $imageDate = $('<p />', { text: $(this).next().find('.image-date').html() });
-      $image = $('<img />', { src: $(this).next().find('.image-url').html(), alt: $(this).find('h3').html() });
-      $userPath = $('<p />', { html: $(this).next().find('.image-user-path').html() });
-      $modalContent.append($closeButton).append($imageTitle).append($userPath).append($image).append($imageDescription);
+      $imageTitle = $('<h3 />', { text: $imageInfo.find('h3').html() });
+      $imageDescription = $('<p />', { text: $imageInfo.find('.image-description').html() });
+      $imageDate = $('<p />', { text: $imageInfo.find('.image-date').html() });
+      $image = $('<img />', { src: $imageInfo.find('.image-url').html(), alt: $(this).find('h3').html() });
+      $userPath = $('<p />', { html: $imageInfo.find('.image-user-path').html() });
+
+      $addFavoriteButton = $imageInfo.find('.add-favorite-button');
+      $removeFavoriteButton = $imageInfo.find('.remove-favorite-button');
+      if ($addFavoriteButton.length) {
+        $favoriteButton = $('<span />', { 'class': 'add-favorite-button', html: $addFavoriteButton.html() });
+      }
+      if ($removeFavoriteButton.length) {
+        $favoriteButton = $('<span />', { 'class': 'remove-favorite-button', html: $removeFavoriteButton.html() });
+      }
+
+      $modalContent.append($closeButton).append($imageTitle).append($userPath).append($image).append($imageDescription).append($favoriteButton);
     $modalContainer.append($modalContent);
     $('body').append($modalContainer);
 
