@@ -80,7 +80,7 @@ a {
   }
 }
 
-.add-button, .edit-button, .delete-button {
+.add-button, .edit-button, .delete-button, .add-favorite-button, .remove-favorite-button {
   display: inline-block;
   @include transition(0.5s);
   outline: none;
@@ -94,7 +94,7 @@ a {
   }
 }
 
-.add-button {
+.add-button, .add-favorite-button {
   border: 1px solid $green;
   background-color: $green;
 
@@ -114,7 +114,7 @@ a {
   }
 }
 
-.delete-button {
+.delete-button, .remove-favorite-button {
   border: 1px solid $red;
   background-color: $red;
 
@@ -122,6 +122,10 @@ a {
     border: 1px solid $redhover;
     background-color: $redhover;
   }
+}
+
+.add-favorite-button a, .remove-favorite-button a {
+  color: #FFF;
 }
 
 .hide {

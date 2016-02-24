@@ -59,8 +59,9 @@ var Images = (function(){
         $favoriteButton = $('<span />', { 'class': 'add-favorite-button', html: $addFavoriteButton.html() });
       }
       if ($removeFavoriteButton.length) {
-        $favoriteButton = $('<span />', { 'class': 'add-favorite-button', html: $removeFavoriteButton.html() });
+        $favoriteButton = $('<span />', { 'class': 'remove-favorite-button', html: $removeFavoriteButton.html() });
       }
+
       $modalContent.append($closeButton).append($imageTitle).append($userPath).append($image).append($imageDescription).append($favoriteButton);
     $modalContainer.append($modalContent);
     $('body').append($modalContainer);
@@ -92,7 +93,7 @@ var Images = (function(){
   }
 
   function adminDeleteClick() {
-    $('.admin-delete-image').on('click', function(e) {
+    $('.admin-delete-icon').on('click', function(e) {
       console.log('hi');
       e.stopPropagation();
     });
