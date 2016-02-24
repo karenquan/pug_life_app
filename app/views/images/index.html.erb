@@ -17,7 +17,8 @@
         <span class="image-username hide"><%= image.album.user.username %></span>
         <span class="image-user-path hide">By: <%= link_to image.album.user.username, user_path(image.album.user.id) %></span>
         <span class="image-url hide"><%= image.url %></span>
-        <span class="favorite-button"><%= link_to 'Favorite', user_add_favorite_path(:user_id => current_user.id, :image_id => image.id), method: :put %></span>
+        <!-- <span class="add-favorite-button"><%= link_to 'Favorite', user_add_favorite_path(current_user, image), method: :put %></span> -->
+        <span class="remove-favorite-button"><%= link_to 'Remove Favorite', user_remove_favorite_path(current_user, image), method: :delete %></span>
       </div>
       <!-- <div class="modal hide">
         <div class="content">

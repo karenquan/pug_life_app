@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
 
     put '/addfavorite/:image_id', action: :add_favorite, as: :add_favorite
-    # resources :favorites
+    delete '/removefavorite/:image_id', action: :remove_favorite, as: :remove_favorite
   end
 
   delete '/images/:id/admin' => 'images#admin_destroy', as: :admin_destroy

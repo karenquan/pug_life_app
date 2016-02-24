@@ -40,9 +40,15 @@ class UsersController < ApplicationController
 
   def add_favorite
     @image = Image.find(params[:image_id])
-    @user = current_user
 
-    @user.favorites << @image
+    current_user.favorites << @image
+    redirect_to root_path
+  end
+
+  def remove_favorite
+    @image = Image.find(params[:image_id])
+
+    current_user.favorites.delete(@image)
     redirect_to root_path
   end
 
