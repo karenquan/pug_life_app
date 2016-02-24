@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_action :authorize_modify_content, only: [:edit]
+  before_action :authorize_modify_content, only: [:edit, :update, :destroy]
 
   def index
     if params[:user_id]
@@ -29,20 +29,15 @@ class AlbumsController < ApplicationController
 
   def show
     @album = Album.find(params[:id])
-    @user = @album.user
     @images = @album.images
   end
 
   def edit
-    # add user condition check
     @album = Album.find(params[:id])
-    @user = @album.user
   end
 
   def update
-    #add user condition check
     @album = Album.find(params[:id])
-    @user = @album.user
     if @album.update_attributes(album_params)
       redirect_to album_path(:id => @album.id)
     else
@@ -52,7 +47,6 @@ class AlbumsController < ApplicationController
 
   def destroy
     @album = Album.find(params[:id])
-    # add user condition check
     @album.destroy
     redirect_to user_path(@album.user_id)
   end

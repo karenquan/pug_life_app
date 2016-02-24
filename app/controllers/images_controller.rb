@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  before_action :authorize_modify_content, only: [:edit]
+  before_action :authorize_modify_content, only: [:edit, :update, :destroy]
 
   def index
     if params[:album_id]

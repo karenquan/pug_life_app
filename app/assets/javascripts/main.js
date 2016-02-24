@@ -29,7 +29,6 @@ var Images = (function(){
         $('body').append($modalContainer);
 
         $('.close').on('click', function() {
-          console.log($($(this).closest('.modal')));
           $('.modal').remove();
           $('.image').bind('click', imageClickEvent);
         });

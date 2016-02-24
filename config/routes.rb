@@ -9,10 +9,12 @@ Rails.application.routes.draw do
       resources :images, shallow: true
     end
 
-    resources :favorites
+    put '/addfavorite/:image_id', action: :add_favorite, as: :add_favorite
+    # resources :favorites
   end
 
   delete '/images/:id/admin' => 'images#admin_destroy', as: :admin_destroy
+
 
   get '/signup', to: 'users#new'
 
