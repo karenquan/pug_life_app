@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PugLifeApp</title>
+  <title>Pug Life</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -10,13 +10,12 @@
 
 <p>
   <% if current_user %>
-    Welcome, <%= current_user.first_name %> | <%= link_to 'Home', root_path %> | <%= link_to 'Profile', user_path(:id => current_user.id) %> |
+    <%= link_to 'Home', root_path %> | <%= link_to current_user.username, user_path(current_user) %> |
     <%= link_to 'Logout', session_path('dummy'), method: :delete %>
   <% else %>
     <%= link_to 'Home', root_path %> |
     <%= link_to 'Login', login_path %> |
     <%= link_to 'Sign Up', new_user_path %>
-
   <% end %>
 </p>
 <%= yield %>

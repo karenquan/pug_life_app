@@ -533,6 +533,17 @@ a {
   height: 20px;
   font-size: 0; }
 
+.favorite-icon {
+  background-image: url("heart.png");
+  background-size: cover;
+  background-position: center center;
+  width: 20px;
+  height: 20px;
+  z-index: 200;
+  position: absolute;
+  bottom: 0;
+  right: 0; }
+
 @media (max-width: 973px) {
   .images {
     text-align: center; } }

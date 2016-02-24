@@ -51,6 +51,16 @@
     <% album.images.each do |image| %>
       <div class="image">
         <div class="image-display" style="background-image: url(<%= image.url %>)"></div>
+            <% if current_user %>
+              <% @favorite = false %> <!-- reset favorite variable -->
+              <% current_user.favorites.each do |favorite| %>
+                <% if favorite.id == image.id then @favorite = true %> <!-- check if image is in user's favorites -->
+                <% end %>
+              <% end %>
+              <% if @favorite %> <!-- display remove or add favorite button depending if user has favorited image or not -->
+                <div class="favorite-icon"></div>
+              <% end %>
+            <% end %>
           <div class="image-info hide">
             <h3><%= image.title %></h3>
             <p class="image-description"><%= image.description %></p>
