@@ -3,7 +3,14 @@
 <span>By: <%= link_to @album.user.username, user_path(@album.user_id) %></span>
 
 <% @images.sort { |a,b| b.updated_at <=> a.updated_at }.each do |image| %>
-  <div class="image">
+  <% if current_user %> <!-- only display hover effect on image if not album owner (so they can click on edit link -->
+      <% if current_user.id == @album.user_id %>
+        <div class="image">
+      <% else %>
+        <div class="image hover-image">
+      <% end %>
+  <% end %>
+
     <div class="image-display" style="background-image: url(<%= image.url %>)"></div>
     <% if current_user %>
       <% @favorite = false %> <!-- reset favorite variable -->

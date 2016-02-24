@@ -31,7 +31,7 @@ var Images = (function(){
   }
 
   function imageHover() {
-    $('#mainImages .image')
+    $('.hover-image')
       .mouseenter(function(e){
           $(this).find('.image-info').removeClass('hide');
         })
