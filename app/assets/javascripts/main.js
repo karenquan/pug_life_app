@@ -48,6 +48,7 @@ var Images = (function(){
       $favoriteButton = '';
       $closeButton = $('<div />', { 'class': 'close' });
       $imageTitle = $('<h3 />', { text: $(this).find('h3').html() });
+      $imageAlbum = $('<p />', { html: $(this).find('.image-album').html() });
       $imageDescription = $('<p />', { text: $(this).find('.image-description').html() });
       $imageDate = $('<p />', { text: $(this).find('.image-date').html() });
       $image = $('<img />', { src: $(this).find('.image-url').html(), alt: $(this).find('h3').html() });
@@ -62,7 +63,7 @@ var Images = (function(){
         $favoriteButton = $('<span />', { 'class': 'remove-favorite-button', html: $removeFavoriteButton.html() });
       }
 
-      $modalContent.append($closeButton).append($imageTitle).append($userPath).append($image).append($imageDescription).append($favoriteButton);
+      $modalContent.append($closeButton).append($imageTitle).append($imageAlbum).append($userPath).append($image).append($imageDescription).append($favoriteButton);
     $modalContainer.append($modalContent);
     $('body').append($modalContainer);
 

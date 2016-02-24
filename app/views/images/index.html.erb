@@ -22,8 +22,9 @@
         <h3><%= image.title %></h3>
         <p class="image-description"><%= image.description %></p>
         <p class="image-date"><%= image.created_at.strftime("%B %d, %Y") %></p>
+        <span class="image-album hide">in <%= link_to image.album.title, album_path(image.album_id) %></span>
         <span class="image-username hide"><%= image.album.user.username %></span>
-        <span class="image-user-path hide">By: <%= link_to image.album.user.username, user_path(image.album.user.id) %></span>
+        <span class="image-user-path hide">By: <%= link_to image.album.user.username, user_path(image.album.user.id) %> on <%= image.created_at.strftime("%B %d, %Y") %></span>
         <span class="image-url hide"><%= image.url %></span>
         <% if current_user %>
           <% @favorite = false %> <!-- reset favorite variable -->
@@ -38,15 +39,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- <div class="modal hide">
-        <div class="content">
-          <div class="close"></div>
-          <h4><%= image.title %></h4>
-          <p>By: <%= link_to image.album.user.username, user_path(image.album.user.id) %></p>
-          <img src="<%= image.url %>" alt="<%= image.title %>">
-          <p><%= image.description %></p>
-        </div>
-      </div> -->
     </div>
   <% end %>
 </section>
