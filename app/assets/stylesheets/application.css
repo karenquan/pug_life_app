@@ -368,6 +368,7 @@ td,
 th {
   padding: 0; }
 
+/*-------------------- COLORS----------------------*/
 /*-------------------- TAGS -----------------------*/
 body {
   background-color: #EEE; }
@@ -449,9 +450,11 @@ section, div {
   display: inline-block;
   padding: 10px 10px 20px 10px;
   vertical-align: top;
-  margin: 20px 10px 0;
   position: relative;
   cursor: pointer; }
+  .image p {
+    margin: 0;
+    text-align: center; }
   .image .image-display {
     background-size: cover;
     background-position: center center;
@@ -480,6 +483,22 @@ section, div {
       text-overflow: ellipsis;
       max-width: 200px;
       max-height: 140px; }
+
+.add-button {
+  display: block;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  border: 1px solid #3CB371;
+  background-color: #3CB371;
+  padding: 15px 30px;
+  color: #FFF;
+  width: 100px; }
+  .add-button:hover {
+    cursor: pointer;
+    border: 1px solid #339961;
+    background-color: #339961; }
 
 .admin-delete-image {
   position: absolute;
