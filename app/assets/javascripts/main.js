@@ -41,11 +41,12 @@ var Images = (function(){
     //build dynamic image modal
     $modalContainer = $('<div />', { 'class': 'modal' });
     $modalContent = $('<div />', { 'class': 'content' });
+    $imageInfoContainer = $('<div />', { 'class': 'modal-info' });
       $favoriteButton = '';
       $closeButton = $('<div />', { 'class': 'close' });
-      $imageTitle = $('<h2 />', { text: $(this).find('h3').html() });
+      $imageTitle = $('<h2 />', { 'class': 'image-title', text: $(this).find('h3').html() });
       $imageAlbum = $('<p />', { html: $(this).find('.image-album').html() });
-      $imageDescription = $('<p />', { text: $(this).find('.image-description').html() });
+      $imageDescription = $('<p />', { 'class': 'image-description', text: $(this).find('.image-description').html() });
       $image = $('<img />', { src: $(this).find('.image-url').html(), alt: $(this).find('h3').html() });
       $userPath = $('<p />', { 'class': 'image-user-path', html: $(this).find('.image-user-path').html() });
 
@@ -58,7 +59,8 @@ var Images = (function(){
         $favoriteButton = $('<span />', { 'class': 'remove-favorite-button', html: $removeFavoriteButton.html() });
       }
 
-      $modalContent.append($closeButton).append($imageTitle).append($imageDescription).append($imageAlbum).append($userPath).append($image).append($favoriteButton);
+      $imageInfoContainer.append($imageTitle).append($imageDescription).append($imageAlbum).append($userPath).append($favoriteButton);
+      $modalContent.append($closeButton).append($imageInfoContainer).append($image);
     $modalContainer.append($modalContent);
     $('body').append($modalContainer);
 
@@ -72,6 +74,7 @@ var Images = (function(){
     $imageInfo = $(this).siblings('.image-info');
     $modalContainer = $('<div />', { 'class': 'modal' });
     $modalContent = $('<div />', { 'class': 'content' });
+$imageInfoContainer = $('<div />', { 'class': 'modal-info' });
       $closeButton = $('<div />', { 'class': 'close' });
       $imageTitle = $('<h2 />', { text: $imageInfo.find('h3').html() });
       $imageAlbum = $('<p />', { html: $imageInfo.find('.image-album').html() });
@@ -88,7 +91,8 @@ var Images = (function(){
         $favoriteButton = $('<span />', { 'class': 'remove-favorite-button', html: $removeFavoriteButton.html() });
       }
 
-      $modalContent.append($closeButton).append($imageTitle).append($imageDescription).append($imageAlbum).append($userPath).append($image).append($favoriteButton);
+      $imageInfoContainer.append($imageTitle).append($imageDescription).append($imageAlbum).append($userPath).append($favoriteButton);
+      $modalContent.append($closeButton).append($imageInfoContainer).append($image);
     $modalContainer.append($modalContent);
     $('body').append($modalContainer);
 

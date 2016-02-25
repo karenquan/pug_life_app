@@ -648,9 +648,13 @@ form a {
       overflow: hidden;
       text-overflow: ellipsis;
       max-width: 200px;
-      max-height: 140px; }
+      max-height: 140px;
+      text-transform: lowercase; }
 
-.image-user-path {
+.image-description {
+  text-transform: lowercase; }
+
+.image-user-path, .image-title {
   text-transform: uppercase; }
 
 .modal {
@@ -682,14 +686,20 @@ form a {
     font-size: 12px;
     text-wrap: normal;
     vertical-align: middle;
-    width: 600px;
+    width: 700px;
     background-color: #FFF;
     padding: 15px;
     margin: 0 auto;
     position: relative;
     display: inline-block; }
+    .modal .content .modal-info {
+      display: inline-block;
+      vertical-align: top;
+      width: 48%;
+      padding: 10px; }
     .modal .content img {
-      max-height: 400px; }
+      width: 48%;
+      display: inline-block; }
     .modal .content .close {
       background-image: url("close_red.png");
       display: inline-block;

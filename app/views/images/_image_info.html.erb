@@ -10,7 +10,7 @@
   <% end %>
 <% end %>
 <div class="image-info hide">
-  <h3><%= image.title %></h3>
+  <h3 class="image-title"><%= image.title %></h3>
   <p class="image-description"><%= image.description %></p>
   <span class="image-album hide">in <%= link_to image.album.title, album_path(image.album_id) %></span>
   <span class="image-username hide"><%= image.album.user.username %></span>

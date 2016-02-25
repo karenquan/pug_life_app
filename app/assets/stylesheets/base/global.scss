@@ -373,11 +373,16 @@ form {
       text-overflow: ellipsis;
       max-width: 200px;
       max-height: 140px;
+      text-transform: lowercase;
     }
   }
 }
 
-.image-user-path {
+.image-description {
+  text-transform: lowercase;
+}
+
+.image-user-path, .image-title {
   text-transform: uppercase;
 }
 
@@ -421,15 +426,23 @@ form {
     font-size: 12px;
     text-wrap: normal;
     vertical-align: middle;
-    width: 600px;
+    width: 700px;
     background-color: #FFF;
     padding: 15px;
     margin: 0 auto;
     position: relative;
     display: inline-block;
 
+    .modal-info {
+      display: inline-block;
+      vertical-align: top;
+      width: 48%;
+      padding: 10px;
+    }
+
     img {
-      max-height: 400px;
+      width: 48%;
+      display: inline-block;
     }
 
     .close {
