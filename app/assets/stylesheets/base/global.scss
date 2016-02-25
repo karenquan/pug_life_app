@@ -76,6 +76,7 @@ nav {
     line-height: 60px;
     display: inline-block;
     height: 100%;
+    padding: 0 15px;
 
     &:hover {
       color: #FFF;
@@ -94,7 +95,6 @@ nav {
     @include transition(0.5s);
     @include box-sizing(border-box);
     height: 100%;
-    padding: 0 15px;
 
     &:hover {
       background-color: $skyblue;
@@ -117,10 +117,35 @@ form {
     margin: 15px auto 0;
     font-weight: bold;
     text-align: left;
+
+    &.image-upload {
+      border: 1px solid $skyblue;
+      background-color: $skyblue;
+      padding: 20px;
+      color: #FFF;
+      text-align: center;
+      @include transition(0.5s);
+
+      &:hover {
+        cursor: pointer;
+        border: 1px solid $skybluehover;
+        background-color: $skybluehover;
+      }
+    }
   }
 
   input, textarea {
     outline: none;
+  }
+
+  input[type="file"] {
+    border: 1px solid;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
   }
 
   input[type="text"], input[type="password"] {

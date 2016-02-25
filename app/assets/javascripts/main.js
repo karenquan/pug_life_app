@@ -1,19 +1,15 @@
 var Images = (function(){
 
   function _eventHandlers() {
-    // adminDeleteClick();
     imageHover();
+    replaceFileUploadLabelName();
 
     $('.image-display').on('click', albumImageClickEvent);
     $('.image-info').on('click', imageClickEvent);
-    // $('.add-button').on('click', addButtonClickEvent);
-    // $('.edit-button').on('click', editButtonClickEvent);
   }
 
   function editButtonClickEvent(e) {
     e.stopPropagation();
-    console.log('click');
-    // $imageId = $(this).data('image-id');
 
     $('.edit.modal').removeClass('hide');
 
@@ -106,6 +102,17 @@ var Images = (function(){
     $('.admin-delete-icon').on('click', function(e) {
       console.log('hi');
       e.stopPropagation();
+    });
+  }
+
+  function replaceFileUploadLabelName() {
+    $fileInput = $('#image_url');
+    $label = $('label.image-upload');
+    $fileInput.on('change', function(e) {
+      console.log($(this).val());
+      var fileName = $(this).val().split('\\').pop();
+      if(fileName)
+        $label.html(fileName);
     });
   }
 

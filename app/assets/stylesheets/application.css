@@ -424,7 +424,8 @@ nav {
     text-transform: uppercase;
     line-height: 60px;
     display: inline-block;
-    height: 100%; }
+    height: 100%;
+    padding: 0 15px; }
     nav a:hover {
       color: #FFF; }
   nav ul {
@@ -440,8 +441,7 @@ nav {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    height: 100%;
-    padding: 0 15px; }
+    height: 100%; }
     nav li:hover {
       background-color: #7EC0EE; }
 
@@ -458,8 +458,29 @@ form label {
   margin: 15px auto 0;
   font-weight: bold;
   text-align: left; }
+  form label.image-upload {
+    border: 1px solid #7EC0EE;
+    background-color: #7EC0EE;
+    padding: 20px;
+    color: #FFF;
+    text-align: center;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    transition: 0.5s; }
+    form label.image-upload:hover {
+      cursor: pointer;
+      border: 1px solid #61b1ea;
+      background-color: #61b1ea; }
 form input, form textarea {
   outline: none; }
+form input[type="file"] {
+  border: 1px solid;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1; }
 form input[type="text"], form input[type="password"] {
   border: none;
   border-bottom: 1px solid #CCC;
