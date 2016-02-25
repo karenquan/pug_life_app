@@ -25,7 +25,7 @@ chester_album = karen.albums.create(
 )
 
 chester_album.images.create(
-  url_file_name: 'http://s3.amazonaws.com/pugrailsapp/images/urls/000/000/034/original/1.jpg?1456341852',
+  url_file_name: 'http://s3.amazonaws.com/pugrailsapp/images/urls/000/000/002/original/14.jpg?1456420831',
   title: 'Chester',
   description: 'Chester!'
 )
