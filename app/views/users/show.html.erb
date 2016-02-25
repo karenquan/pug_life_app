@@ -1,10 +1,10 @@
 <section class="container">
-  <h1 class="header"><%= @user.username %></h1>
+  <h1 class="username"><%= @user.username %>.</h1>
 
-  <section id="userImages">
+  <section id="userImages" class="flex-container">
     <% @albums.each do |album| %>
       <% album.images.each do |image| %>
-        <div class="image hover-image">
+        <div class="image hover-image flex-item">
           <%= render "images/image_info", :image => image %>
           <% if current_user %>
             <% if current_user.id == @album.user_id %>
@@ -18,7 +18,7 @@
   </section>
 
   <section id="userAlbums">
-    <h2>Albums</h2>
+    <h2>albums.</h2>
     <% if current_user %>
       <% if current_user.id == @user.id %>
         <%= link_to 'Add Album', new_user_album_path(@user), class: "add-button" %>
@@ -31,10 +31,10 @@
     <% end %>
   </section>
 
-  <section id="userFavorites">
-    <h2>Favorites</h2>
+  <section id="userFavorites flex-container">
+    <h2>favorites.</h2>
     <% @user.favorites.each do |image| %>
-      <div class="image hover-image">
+      <div class="image hover-image flex-item">
         <%= render "images/image_info", :image => image %>
         <% if current_user %>
           <% if current_user.id == @album.user_id %>

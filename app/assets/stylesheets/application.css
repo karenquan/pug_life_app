@@ -407,19 +407,7 @@ a {
 
 h1, h2, h3 {
   margin: 0;
-  font-family: 'Anton', Arial, sans-serif;
   text-align: center; }
-
-h1.header {
-  font-size: 100px;
-  text-transform: lowercase;
-  margin: 0 auto;
-  padding: 20px 0;
-  border-bottom: 1px solid;
-  text-align: left;
-  margin-bottom: 40px; }
-  h1.header:after {
-    content: '.'; }
 
 h2 {
   font-size: 40px; }
@@ -525,10 +513,10 @@ form textarea {
 /*-------------------- IDs ------------------------*/
 /*-------------------- CLASSES --------------------*/
 .container {
-  max-width: 980px;
+  max-width: 1000px;
   width: 100%;
   margin: 10px auto;
-  padding: 10px;
+  padding: 20px;
   text-align: center; }
   .container a.back {
     display: inline-block;
@@ -537,6 +525,20 @@ form textarea {
     font-family: 'Newscycle', Arial, sans-serif;
     font-size: 45px;
     text-transform: uppercase; }
+    .container h1.username {
+      font-family: 'Anton', Arial, sans-serif;
+      text-transform: lowercase;
+      font-size: 50px; }
+    .container h1.pug-life {
+      font-family: 'Anton', Arial, sans-serif;
+      font-size: 80px;
+      text-transform: lowercase;
+      border-bottom: 1px solid;
+      margin-bottom: 40px;
+      width: 220px;
+      height: 180px;
+      line-height: 85px;
+      padding: 10px 0 0 0; }
 
 .registration {
   text-align: justify;
@@ -559,6 +561,18 @@ form textarea {
     background-size: cover;
     height: 100%; }
 
+.flex-container {
+  display: -webkit-flex;
+  display: flex;
+  align-content: flex-start;
+  justify-content: center;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  flex-wrap: wrap; }
+
+.flex-item {
+  order: 1; }
+
 .image {
   -webkit-transition: 0.5s;
   -moz-transition: 0.5s;
@@ -575,7 +589,7 @@ form textarea {
   display: inline-block;
   padding: 10px 10px 20px 10px;
   vertical-align: top;
-  margin: 8px;
+  margin: 10px;
   position: relative;
   cursor: pointer; }
   .image p {

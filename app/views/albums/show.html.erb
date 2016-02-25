@@ -3,13 +3,14 @@
   <p><%= @album.description %></p>
   <p>By: <%= link_to @album.user.username, user_path(@album.user_id) %></p>
 
-  <% @images.sort { |a,b| b.updated_at <=> a.updated_at }.each do |image| %>
+  <div class="flex-container">
+    <% @images.sort { |a,b| b.updated_at <=> a.updated_at }.each do |image| %>
     <% if current_user %> <!-- only display hover effect on image if not album owner (so they can click on edit link -->
       <% if current_user.id == @album.user_id %>
-        <div class="image">
+        <div class="image flex-item">
       <% end %>
     <% else %>
-      <div class="image hover-image">
+      <div class="image hover-image flex-item">
     <% end %>
 
       <div class="image-display" style="background-image: url(<%= image.url %>)"></div>
@@ -53,6 +54,7 @@
       <% end %>
     </div>
   <% end %>
+  </div>
 
   <% if current_user %> <!-- add actions if user is album owner -->
     <% if current_user.id == @album.user_id %>
