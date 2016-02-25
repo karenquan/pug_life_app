@@ -399,7 +399,11 @@ a {
   text-decoration: none;
   -webkit-transition: 0.5s;
   -moz-transition: 0.5s;
-  transition: 0.5s; }
+  transition: 0.5s;
+  color: #7EC0EE;
+  text-transform: uppercase; }
+  a:hover {
+    color: #FF82AB; }
 
 h1, h2, h3 {
   margin: 0;
@@ -432,6 +436,8 @@ nav {
     line-height: 60px;
     display: inline-block;
     height: 100%; }
+    nav a:hover {
+      color: #FFF; }
   nav ul {
     list-style-type: none;
     margin: 0;
@@ -450,9 +456,6 @@ nav {
     nav li:hover {
       background-color: #7EC0EE; }
 
-input {
-  outline: none; }
-
 form > * {
   display: block;
   width: 80%;
@@ -460,7 +463,18 @@ form > * {
 form label {
   text-transform: uppercase;
   width: 80%;
-  margin: 15px auto 0; }
+  margin: 15px auto 0;
+  font-weight: bold;
+  text-align: left; }
+form input, form textarea {
+  outline: none; }
+form input[type="text"], form input[type="password"] {
+  border: none;
+  border-bottom: 1px solid #CCC;
+  background: inherit;
+  padding: 10px 0; }
+  form input[type="text"]:focus, form input[type="password"]:focus {
+    border-bottom: 1px solid #3CB371; }
 form input[type="submit"] {
   margin: 40px auto 20px;
   width: 80%;
@@ -471,10 +485,41 @@ form input[type="submit"] {
   transition: 0.5s;
   text-transform: uppercase;
   color: #FFF;
-  padding: 20px 0; }
+  padding: 20px 0;
+  font-size: 17px; }
   form input[type="submit"]:hover {
     border: 1px solid #339961;
     background-color: #339961; }
+form textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 5px;
+  margin-top: 20px; }
+  form textarea:focus {
+    border: 1px solid #3CB371; }
+
+.add a:hover, .edit a:hover {
+  color: #000;
+  font-weight: bold; }
+
+.add label {
+  color: #3CB371; }
+.add a {
+  color: #3CB371; }
+
+.edit label {
+  color: #7EC0EE; }
+.edit input[type="text"]:focus {
+  border-bottom: 1px solid #7EC0EE; }
+.edit input[type="submit"] {
+  border: 1px solid #7EC0EE;
+  background-color: #7EC0EE; }
+  .edit input[type="submit"]:hover {
+    border: 1px solid #61b1ea;
+    background-color: #61b1ea; }
+.edit textarea:focus {
+  border: 1px solid #7EC0EE; }
 
 /*-------------------- IDs ------------------------*/
 /*-------------------- CLASSES --------------------*/
@@ -483,17 +528,19 @@ form input[type="submit"] {
   width: 100%;
   margin: 10px auto;
   padding: 10px;
-  border: 1px solid;
   text-align: center; }
+  .container a.back {
+    display: inline-block;
+    margin: 0 auto; }
+  .container h1 {
+    font-family: 'Newscycle', Arial, sans-serif;
+    font-size: 45px;
+    text-transform: uppercase; }
 
 .registration {
   text-align: justify;
   height: 100%;
   font-size: 0; }
-  .registration:after {
-    content: '';
-    display: inline-block;
-    width: 100%; }
   .registration h1 {
     text-transform: uppercase;
     font-size: 40px; }
@@ -510,13 +557,6 @@ form input[type="submit"] {
     background: url("pug.jpg") no-repeat center center;
     background-size: cover;
     height: 100%; }
-  .registration input[type="text"], .registration input[type="password"] {
-    border: none;
-    border-bottom: 1px solid #CCC;
-    background: inherit;
-    padding: 10px 0; }
-    .registration input[type="text"]:focus, .registration input[type="password"]:focus {
-      border-bottom: 1px solid #000; }
 
 .image {
   -webkit-transition: 0.5s;
@@ -583,6 +623,15 @@ form input[type="submit"] {
   white-space: nowrap;
   text-align: center;
   font-size: 0; }
+  .modal a {
+    color: #7EC0EE; }
+    .modal a:hover {
+      color: #FF82AB; }
+  .modal p {
+    font-size: 13px;
+    margin: 5px 0; }
+  .modal h2 {
+    color: #575757; }
   .modal:after {
     content: '';
     display: inline-block;
@@ -594,7 +643,7 @@ form input[type="submit"] {
     vertical-align: middle;
     width: 600px;
     background-color: #FFF;
-    padding: 20px;
+    padding: 15px;
     margin: 0 auto;
     position: relative;
     display: inline-block; }
@@ -625,6 +674,7 @@ form input[type="submit"] {
   text-align: center;
   text-transform: uppercase; }
   .add-button:hover, .edit-button:hover, .delete-button:hover, .add-favorite-button:hover, .remove-favorite-button:hover {
+    color: #FFF;
     cursor: pointer; }
 
 .add-button, .add-favorite-button {
@@ -633,6 +683,13 @@ form input[type="submit"] {
   .add-button:hover, .add-favorite-button:hover {
     border: 1px solid #339961;
     background-color: #339961; }
+
+.add-favorite-button, .remove-favorite-button {
+  display: block;
+  margin: 15px auto 0;
+  width: 100px; }
+  .add-favorite-button a:hover, .remove-favorite-button a:hover {
+    color: #FFF; }
 
 .edit-button {
   border: 1px solid #7EC0EE;
@@ -650,6 +707,11 @@ form input[type="submit"] {
 
 .add-favorite-button a, .remove-favorite-button a {
   color: #FFF; }
+
+.admin-image-actions {
+  position: absolute;
+  bottom: 0;
+  font-size: 12px; }
 
 .admin-delete-icon {
   position: absolute;
@@ -673,17 +735,24 @@ form input[type="submit"] {
   bottom: 4px;
   right: 4px; }
 
+.error_messages {
+  color: #CD5555; }
+  .error_messages ul {
+    padding-left: 20px; }
+
 .hide {
   display: none; }
 
 .show {
   display: block; }
 
-input.error, textarea.error {
-  border: 1px solid #CD5555; }
+form input[type="text"].error, form input[type="password"].error, textarea.error {
+  border-bottom: 1px solid #CD5555; }
 
-@media (max-width: 973px) {
-  .images {
-    text-align: center; } }
+@media (max-width: 730px) {
+  .registration > div {
+    width: 100%; }
+  .registration .bg {
+    display: none; } }
 
 /*# sourceMappingURL=application.css.map */

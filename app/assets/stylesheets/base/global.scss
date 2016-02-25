@@ -47,6 +47,12 @@ section, div {
 a {
   text-decoration: none;
   @include transition(0.5s);
+  color: $skyblue;
+  text-transform: uppercase;
+
+  &:hover {
+    color: $pink;
+  }
 }
 
 h1, h2, h3 {
@@ -86,6 +92,10 @@ nav {
     line-height: 60px;
     display: inline-block;
     height: 100%;
+
+    &:hover {
+      color: #FFF;
+    }
   }
 
   ul {
@@ -108,10 +118,6 @@ nav {
   }
 }
 
-input {
-  outline: none;
-}
-
 form {
   // border: 1px solid;
 
@@ -125,6 +131,23 @@ form {
     text-transform: uppercase;
     width: 80%;
     margin: 15px auto 0;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  input, textarea {
+    outline: none;
+  }
+
+  input[type="text"], input[type="password"] {
+    border: none;
+    border-bottom: 1px solid #CCC;
+    background: inherit;
+    padding: 10px 0;
+
+    &:focus {
+      border-bottom: 1px solid $green;
+    }
   }
 
   input[type="submit"] {
@@ -136,10 +159,66 @@ form {
     text-transform: uppercase;
     color: #FFF;
     padding: 20px 0;
+    font-size: 17px;
 
     &:hover {
       border: 1px solid $greenhover;
       background-color: $greenhover;
+    }
+  }
+
+  textarea {
+    @include box-sizing(border-box);
+    padding: 5px;
+    margin-top: 20px;
+
+    &:focus {
+      border: 1px solid $green;
+    }
+  }
+}
+
+.add, .edit {
+  a:hover {
+    color: #000;
+    font-weight: bold;
+  }
+}
+
+.add {
+  label {
+    color: $green;
+  }
+
+  a {
+    color: $green;
+  }
+}
+
+.edit {
+  label {
+    color: $skyblue;
+  }
+
+  input[type="text"] {
+    &:focus {
+      border-bottom: 1px solid $skyblue;
+    }
+  }
+
+  input[type="submit"] {
+    border: 1px solid $skyblue;
+    background-color: $skyblue;
+
+    &:hover {
+      border: 1px solid $skybluehover;
+      background-color: $skybluehover;
+    }
+  }
+
+  textarea {
+    &:focus {
+      border: 1px solid $skyblue;
     }
   }
 }
@@ -153,20 +232,24 @@ form {
   width: 100%;
   margin: 10px auto;
   padding: 10px;
-  border: 1px solid;
   text-align: center;
+
+  a.back {
+    display: inline-block;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-family: 'Newscycle', Arial, sans-serif;
+    font-size: 45px;
+    text-transform: uppercase;
+  }
 }
 
 .registration {
   text-align: justify;
   height: 100%;
   font-size: 0;
-
-  &:after {
-    content: '';
-    display: inline-block;
-    width: 100%;
-  }
 
   h1 {
     text-transform: uppercase;
@@ -190,17 +273,6 @@ form {
     background: url('pug.jpg') no-repeat center center;
     background-size: cover;
     height: 100%;
-  }
-
-  input[type="text"], input[type="password"] {
-    border: none;
-    border-bottom: 1px solid #CCC;
-    background: inherit;
-    padding: 10px 0;
-
-    &:focus {
-      border-bottom: 1px solid #000;
-    }
   }
 }
 
@@ -276,6 +348,23 @@ form {
   text-align: center;
   font-size: 0;
 
+  a {
+    color: $skyblue;
+
+    &:hover {
+      color: $pink;
+    }
+  }
+
+  p {
+    font-size: 13px;
+    margin: 5px 0;
+  }
+
+  h2 {
+    color: $darkgray;
+  }
+
   &:after {
     content: '';
     display: inline-block;
@@ -289,7 +378,7 @@ form {
     vertical-align: middle;
     width: 600px;
     background-color: #FFF;
-    padding: 20px;
+    padding: 15px;
     margin: 0 auto;
     position: relative;
     display: inline-block;
@@ -327,6 +416,7 @@ form {
   text-transform: uppercase;
 
   &:hover {
+    color: #FFF;
     cursor: pointer;
   }
 }
@@ -338,6 +428,18 @@ form {
   &:hover {
     border: 1px solid $greenhover;
     background-color: $greenhover;
+  }
+}
+
+.add-favorite-button, .remove-favorite-button {
+  display: block;
+  margin: 15px auto 0;
+  width: 100px;
+
+  a {
+    &:hover {
+      color: #FFF;
+    }
   }
 }
 
@@ -365,6 +467,12 @@ form {
   color: #FFF;
 }
 
+.admin-image-actions {
+  position: absolute;
+  bottom: 0;
+  font-size: 12px;
+}
+
 .admin-delete-icon {
   position: absolute;
   top: -10px;
@@ -389,6 +497,14 @@ form {
   right: 4px;
 }
 
+.error_messages {
+  color: $red;
+
+  ul {
+    padding-left: 20px;
+  }
+}
+
 .hide {
   display: none;
 }
@@ -397,12 +513,18 @@ form {
   display: block;
 }
 
-input.error, textarea.error, {
-  border: 1px solid $red;
+form input[type="text"].error, form input[type="password"].error, textarea.error, {
+  border-bottom: 1px solid $red;
 }
 
-@media (max-width: 973px) {
-  .images {
-    text-align: center;
+@media (max-width: 730px) {
+  .registration {
+    > div {
+      width: 100%;
+    }
+
+    .bg {
+      display: none;
+    }
   }
 }

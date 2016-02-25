@@ -62,7 +62,7 @@ var Images = (function(){
         $favoriteButton = $('<span />', { 'class': 'remove-favorite-button', html: $removeFavoriteButton.html() });
       }
 
-      $modalContent.append($closeButton).append($imageTitle).append($imageAlbum).append($userPath).append($image).append($imageDescription).append($favoriteButton);
+      $modalContent.append($closeButton).append($imageTitle).append($imageDescription).append($imageAlbum).append($userPath).append($image).append($favoriteButton);
     $modalContainer.append($modalContent);
     $('body').append($modalContainer);
 
@@ -92,7 +92,7 @@ var Images = (function(){
         $favoriteButton = $('<span />', { 'class': 'remove-favorite-button', html: $removeFavoriteButton.html() });
       }
 
-      $modalContent.append($closeButton).append($imageTitle).append($imageAlbum).append($userPath).append($image).append($imageDescription).append($favoriteButton);
+      $modalContent.append($closeButton).append($imageTitle).append($imageDescription).append($imageAlbum).append($userPath).append($image).append($favoriteButton);
     $modalContainer.append($modalContent);
     $('body').append($modalContainer);
 
