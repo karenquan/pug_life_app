@@ -103,12 +103,12 @@ nav {
 }
 
 form {
-  // border: 1px solid;
 
   > * {
     display: block;
     width: 80%;
     margin: 0 auto;
+    @include box-sizing(border-box);
   }
 
   label {
@@ -159,6 +159,10 @@ form {
     &:focus {
       border: 1px solid $green;
     }
+  }
+
+  a {
+    padding: 20px 0 !important;
   }
 }
 
@@ -519,6 +523,7 @@ form {
 
 .error_messages {
   color: $red;
+  text-align: left;
 
   ul {
     padding-left: 20px;

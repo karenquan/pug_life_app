@@ -1,3 +1,33 @@
-<h1>Edit</h1>
+<div class="container">
+  <h1>Edit</h1>
+  <%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= render :partial => 'form', :locals => { :submit_label => 'Update' } %>
+  <%= f.label :first_name, 'First Name' %>
+  <%= f.text_field :first_name, :class => 'test' %>
+
+  <%= f.label :last_name, 'Last Name' %>
+  <%= f.text_field :last_name %>
+
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation, 'Confirm Password' %>
+  <%= f.password_field :password_confirmation %>
+ <%= f.submit 'Update' %>
+ <%= link_to 'delete account', user_path(current_user), class: 'delete-button', method: :delete, data: { confirm: 'Are you sure you want to remove your account?'} %>
+<% end %>
+
+</div>
+

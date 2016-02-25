@@ -448,7 +448,10 @@ nav {
 form > * {
   display: block;
   width: 80%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
 form label {
   text-transform: uppercase;
   width: 80%;
@@ -487,6 +490,8 @@ form textarea {
   margin-top: 20px; }
   form textarea:focus {
     border: 1px solid #3CB371; }
+form a {
+  padding: 20px 0 !important; }
 
 .add a:hover, .edit a:hover {
   color: #000;
@@ -754,7 +759,8 @@ form textarea {
   right: 4px; }
 
 .error_messages {
-  color: #CD5555; }
+  color: #CD5555;
+  text-align: left; }
   .error_messages ul {
     padding-left: 20px; }
 
