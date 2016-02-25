@@ -4,15 +4,9 @@
   <section id="userImages" class="flex-container">
     <% @albums.each do |album| %>
       <% album.images.each do |image| %>
-        <div class="image hover-image flex-item">
-          <%= render "images/image_info", :image => image %>
-          <% if current_user %>
-            <% if current_user.id == @album.user_id %>
-              <% @imageId = image.id %>
-              <p><%= link_to 'Edit', edit_image_path(image.id) %><!-- <a class="edit-button" data-image-id="<%= image.id %>">Edit</a> --> | <%= link_to 'Delete', image_path(:id => image.id), method: :delete, data: { confirm: 'Are you sure you want to delete this image?' } %></p>
-            <% end %>
-          <% end %>
-        </div> <!-- end image div -->
+
+          <%= render "images/image_info", :image => image, :@album => image.album %>
+
       <% end %>
     <% end %> <!-- end albums loop -->
   </section>
@@ -25,7 +19,7 @@
       <% end %>
     <% end %>
     <% @albums.each do |album| %>
-        <%= link_to album.title, album_path(:id => album.id), class: "flex-item album" %>
+        <%= link_to album.title, album_path(:id => album.id), class: 'flex-item album' %>
     <% end %>
   </section>
 
@@ -33,13 +27,7 @@
     <h2>favorites.</h2>
     <% @user.favorites.each do |image| %>
       <div class="image hover-image flex-item">
-        <%= render "images/image_info", :image => image %>
-        <% if current_user %>
-          <% if current_user.id == @album.user_id %>
-            <% @imageId = image.id %>
-            <p><%= link_to 'Edit', edit_image_path(image.id) %><!-- <a class="edit-button" data-image-id="<%= image.id %>">Edit</a> --> | <%= link_to 'Delete', image_path(:id => image.id), method: :delete, data: { confirm: 'Are you sure you want to delete this image?' } %></p>
-          <% end %>
-        <% end %>
+        <%= render "images/image_info", :image => image, :@album => image.album %>
       </div> <!-- end image div -->
     <% end %> <!-- end favorites loop -->
   </section>

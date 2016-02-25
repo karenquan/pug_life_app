@@ -659,11 +659,7 @@ form a {
       overflow: hidden;
       text-overflow: ellipsis;
       max-width: 200px;
-      max-height: 140px;
-      text-transform: lowercase; }
-
-.image-description {
-  text-transform: lowercase; }
+      max-height: 140px; }
 
 .image-user-path, .image-title {
   text-transform: uppercase; }
