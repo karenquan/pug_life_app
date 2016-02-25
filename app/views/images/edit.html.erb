@@ -2,7 +2,7 @@
   <h1>Edit Image</h1>
   <%= form_for @image do |f| %>
       <%= f.label :url, 'Image URL' %>
-      <%= f.text_field :url %>
+      <%= f.file_field :url %>
 
       <%= f.label :title %>
       <%= f.text_field :title %>
