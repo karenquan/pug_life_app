@@ -383,6 +383,9 @@ th {
   src: url("pathway_gothic.ttf") format("truetype"); }
 /*-------------------- COLORS----------------------*/
 /*-------------------- TAGS -----------------------*/
+html, body {
+  height: 100%; }
+
 body {
   background-color: #EEE;
   font-family: 'Newscycle', Arial, sans-serif; }
@@ -417,25 +420,158 @@ h2 {
   font-size: 40px; }
 
 nav {
-  background-color: #575757; }
+  background-color: #575757;
+  height: 60px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
   nav a {
     color: #FFF;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    line-height: 60px;
+    display: inline-block;
+    height: 100%; }
   nav ul {
     list-style-type: none;
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    height: 100%; }
   nav li {
     display: inline-block;
     -webkit-transition: 0.5s;
     -moz-transition: 0.5s;
     transition: 0.5s;
-    padding: 10px; }
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 0 15px; }
     nav li:hover {
       background-color: #7EC0EE; }
 
+input {
+  outline: none; }
+
+form > * {
+  display: block;
+  width: 80%;
+  margin: 0 auto; }
+form label {
+  text-transform: uppercase;
+  width: 80%;
+  margin: 15px auto 0; }
+form input[type="submit"] {
+  margin: 40px auto 20px;
+  width: 80%;
+  border: 1px solid #3CB371;
+  background-color: #3CB371;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  transition: 0.5s;
+  text-transform: uppercase;
+  color: #FFF;
+  padding: 20px 0; }
+  form input[type="submit"]:hover {
+    border: 1px solid #339961;
+    background-color: #339961; }
+
 /*-------------------- IDs ------------------------*/
 /*-------------------- CLASSES --------------------*/
+.container {
+  max-width: 980px;
+  width: 100%;
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid;
+  text-align: center; }
+
+.registration {
+  text-align: justify;
+  height: 100%;
+  font-size: 0; }
+  .registration:after {
+    content: '';
+    display: inline-block;
+    width: 100%; }
+  .registration h1 {
+    text-transform: uppercase;
+    font-size: 40px; }
+  .registration p {
+    width: 80%;
+    margin: 0 auto;
+    color: #CD5555; }
+  .registration > div {
+    width: 49%;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 15px; }
+  .registration .bg {
+    background: url("pug.jpg") no-repeat center center;
+    background-size: cover;
+    height: 100%; }
+  .registration input[type="text"], .registration input[type="password"] {
+    border: none;
+    border-bottom: 1px solid #CCC;
+    background: inherit;
+    padding: 10px 0; }
+    .registration input[type="text"]:focus, .registration input[type="password"]:focus {
+      border-bottom: 1px solid #000; }
+
+.image {
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+  background-color: #FFF;
+  width: 220px;
+  height: 180px;
+  display: inline-block;
+  padding: 10px 10px 20px 10px;
+  vertical-align: top;
+  margin: 8px;
+  position: relative;
+  cursor: pointer; }
+  .image p {
+    margin: 0;
+    text-align: center; }
+  .image .image-display {
+    background-size: cover;
+    background-position: center center;
+    width: 200px;
+    height: 150px; }
+  .image .image-info {
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    transition: 0.5s;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 20px 30px 20px;
+    height: 100%;
+    width: 100%; }
+    .image .image-info a {
+      display: block;
+      height: 100%;
+      width: 100%; }
+    .image .image-info h3 {
+      margin: 0; }
+    .image .image-info p {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 200px;
+      max-height: 140px; }
+
+.image-user-path {
+  text-transform: uppercase; }
+
 .modal {
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
@@ -515,75 +651,6 @@ nav {
 .add-favorite-button a, .remove-favorite-button a {
   color: #FFF; }
 
-.hide {
-  display: none; }
-
-.show {
-  display: block; }
-
-input.error, textarea.error {
-  border: 1px solid #CD5555; }
-
-/*-------------------- IDs ------------------------*/
-#mainImages {
-  max-width: 980px;
-  margin: 0 auto; }
-
-/*-------------------- CLASSES --------------------*/
-.image {
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  transition: 0.5s;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
-  background-color: #FFF;
-  width: 220px;
-  height: 180px;
-  display: inline-block;
-  padding: 10px 10px 20px 10px;
-  vertical-align: top;
-  margin: 10px 0 0 0;
-  position: relative;
-  cursor: pointer; }
-  .image p {
-    margin: 0;
-    text-align: center; }
-  .image .image-display {
-    background-size: cover;
-    background-position: center center;
-    width: 200px;
-    height: 150px; }
-  .image .image-info {
-    -webkit-transition: 0.5s;
-    -moz-transition: 0.5s;
-    transition: 0.5s;
-    background-color: rgba(255, 255, 255, 0.9);
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 20px 20px 30px 20px;
-    height: 100%;
-    width: 100%; }
-    .image .image-info a {
-      display: block;
-      height: 100%;
-      width: 100%; }
-    .image .image-info h3 {
-      margin: 0; }
-    .image .image-info p {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 200px;
-      max-height: 140px; }
-
-.image-user-path {
-  text-transform: uppercase; }
-
 .admin-delete-icon {
   position: absolute;
   top: -10px;
@@ -605,6 +672,15 @@ input.error, textarea.error {
   position: absolute;
   bottom: 4px;
   right: 4px; }
+
+.hide {
+  display: none; }
+
+.show {
+  display: block; }
+
+input.error, textarea.error {
+  border: 1px solid #CD5555; }
 
 @media (max-width: 973px) {
   .images {

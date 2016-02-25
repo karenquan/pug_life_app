@@ -31,6 +31,10 @@ $lightgray: #ABABAB;
 
 /*-------------------- TAGS -----------------------*/
 
+html, body {
+  height: 100%;
+}
+
 body {
   background-color: #EEE;
   font-family: 'Newscycle', Arial, sans-serif;
@@ -72,22 +76,31 @@ h2 {
 
 nav {
   background-color: $darkgray;
+  height: 60px;
+  width: 100%;
+  @include box-sizing(border-box);
 
   a {
     color: #FFF;
     text-transform: uppercase;
+    line-height: 60px;
+    display: inline-block;
+    height: 100%;
   }
 
   ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    height: 100%;
   }
 
   li {
     display: inline-block;
     @include transition(0.5s);
-    padding: 10px;
+    @include box-sizing(border-box);
+    height: 100%;
+    padding: 0 15px;
 
     &:hover {
       background-color: $skyblue;
@@ -95,9 +108,162 @@ nav {
   }
 }
 
+input {
+  outline: none;
+}
+
+form {
+  // border: 1px solid;
+
+  > * {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  label {
+    text-transform: uppercase;
+    width: 80%;
+    margin: 15px auto 0;
+  }
+
+  input[type="submit"] {
+    margin: 40px auto 20px;
+    width: 80%;
+    border: 1px solid $green;
+    background-color: $green;
+    @include transition(0.5s);
+    text-transform: uppercase;
+    color: #FFF;
+    padding: 20px 0;
+
+    &:hover {
+      border: 1px solid $greenhover;
+      background-color: $greenhover;
+    }
+  }
+}
+
 /*-------------------- IDs ------------------------*/
 
 /*-------------------- CLASSES --------------------*/
+
+.container {
+  max-width: 980px;
+  width: 100%;
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid;
+  text-align: center;
+}
+
+.registration {
+  text-align: justify;
+  height: 100%;
+  font-size: 0;
+
+  &:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+  }
+
+  h1 {
+    text-transform: uppercase;
+    font-size: 40px;
+  }
+
+  p {
+    width: 80%;
+    margin: 0 auto;
+    color: $red;
+  }
+
+  > div {
+    width: 49%;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 15px;
+  }
+
+  .bg {
+    background: url('pug.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100%;
+  }
+
+  input[type="text"], input[type="password"] {
+    border: none;
+    border-bottom: 1px solid #CCC;
+    background: inherit;
+    padding: 10px 0;
+
+    &:focus {
+      border-bottom: 1px solid #000;
+    }
+  }
+}
+
+.image {
+  @include transition(0.5s);
+  @include border-radius(2px);
+  @include box-shadow(0, 1px, 2px, rgba(0,0,0,0.07));
+  background-color: #FFF;
+  width: 220px;
+  height: 180px;
+  display: inline-block;
+  padding: 10px 10px 20px 10px;
+  vertical-align: top;
+  margin: 8px;
+  position: relative;
+  cursor: pointer;
+
+  p {
+    margin: 0;
+    text-align: center;
+  }
+
+  .image-display {
+    background-size: cover;
+    background-position: center center;
+    width: 200px;
+    height: 150px;
+  }
+
+  .image-info {
+    @include transition(0.5s);
+    background-color: rgba(255,255,255, 0.9);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 20px 30px 20px;
+    height: 100%;
+    width: 100%;
+
+    a {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+
+    h3 {
+      margin: 0;
+    }
+
+    p {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 200px;
+      max-height: 140px;
+    }
+  }
+}
+
+.image-user-path {
+  text-transform: uppercase;
+}
+
 .modal {
   background-color: rgba(0,0,0,0.5);
   position: fixed;
@@ -199,6 +365,30 @@ nav {
   color: #FFF;
 }
 
+.admin-delete-icon {
+  position: absolute;
+  top: -10px;
+  right: -8px;
+  background-image: url('close_red.png');
+  background-size: 20px 20px;
+  z-index: 100;
+  width: 20px;
+  height: 20px;
+  font-size: 0;
+}
+
+.favorite-icon {
+  background-image: url('heart.png');
+  background-size: cover;
+  background-position: center center;
+  width: 15px;
+  height: 13px;
+  z-index: 200;
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+}
+
 .hide {
   display: none;
 }
@@ -209,4 +399,10 @@ nav {
 
 input.error, textarea.error, {
   border: 1px solid $red;
+}
+
+@media (max-width: 973px) {
+  .images {
+    text-align: center;
+  }
 }

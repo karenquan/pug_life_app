@@ -1,7 +1,6 @@
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
     <div class="error_messages">
-      <h2>Form is invalid</h2>
       <ul>
         <% for message in @user.errors.full_messages %>
           <li><%= message %></li>
@@ -9,25 +8,20 @@
       </ul>
     </div>
   <% end %>
-  <div>
-    <%= f.label :first_name, 'First Name' %>
-    <%= f.text_field :first_name, :class => 'test' %>
-  </div>
-  <div>
-    <%= f.label :last_name, 'Last Name' %>
-    <%= f.text_field :last_name %>
-  </div>
-  <div>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-  </div>
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <div>
-    <%= f.label :password_confirmation, 'Confirm Password' %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <%= f.submit submit_label %>
+
+  <%= f.label :first_name, 'First Name' %>
+  <%= f.text_field :first_name, :class => 'test' %>
+
+  <%= f.label :last_name, 'Last Name' %>
+  <%= f.text_field :last_name %>
+
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation, 'Confirm Password' %>
+  <%= f.password_field :password_confirmation %>
+ <%= f.submit submit_label %>
 <% end %>
