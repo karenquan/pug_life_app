@@ -1,3 +1,11 @@
-<h1><%= @image.title %></h1>
-<img src="<%= @image.url %>" alt="<%= @image.description %>" />
-<p><%= @image.description %></p>
+<div class="container">
+  <h1><%= @image.title %></h1>
+  <img src="<%= @image.url %>" alt="<%= @image.description %>" />
+  <p><%= @image.description %></p>
+  <p>
+    in <%= link_to @image.album.title, album_path(@image.album) %>
+    by <%= link_to @image.album.user.username, user_path(@image.album.user) %>
+    on <%= @image.created_at.strftime("%B %d, %Y") %>
+  </p>
+</div>
+

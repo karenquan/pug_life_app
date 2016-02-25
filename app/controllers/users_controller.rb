@@ -50,14 +50,14 @@ class UsersController < ApplicationController
     @image = Image.find(params[:image_id])
 
     current_user.favorites << @image
-    redirect_to root_path
+    redirect_to :back
   end
 
   def remove_favorite
     @image = Image.find(params[:image_id])
 
     current_user.favorites.delete(@image)
-    redirect_to root_path
+    redirect_to :back
   end
 
   private
