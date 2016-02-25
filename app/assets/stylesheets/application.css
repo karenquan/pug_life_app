@@ -678,6 +678,9 @@ form textarea {
       .modal .content .close:hover {
         cursor: pointer; }
 
+.album-owner-actions {
+  margin: 40px 0 0 0; }
+
 .add-button, .edit-button, .delete-button, .add-favorite-button, .remove-favorite-button {
   display: inline-block;
   -webkit-transition: 0.5s;

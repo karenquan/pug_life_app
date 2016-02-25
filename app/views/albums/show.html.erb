@@ -58,7 +58,7 @@
 
   <% if current_user %> <!-- add actions if user is album owner -->
     <% if current_user.id == @album.user_id %>
-      <div>
+      <div class="album-owner-actions">
         <%= link_to 'Add Image', new_album_image_path(@album), class: 'add-button' %>
         <%= link_to 'Edit Album', edit_album_path(@album), class: 'edit-button' %>
         <%= link_to 'Delete Album', album_path(@album), class: 'delete-button', method: :delete, data: { confirm: 'Are you sure you want to remove this album?' } %>

@@ -422,6 +422,10 @@ form {
   }
 }
 
+.album-owner-actions {
+  margin: 40px 0 0 0;
+}
+
 .add-button, .edit-button, .delete-button, .add-favorite-button, .remove-favorite-button {
   display: inline-block;
   @include transition(0.5s);
