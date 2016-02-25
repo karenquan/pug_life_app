@@ -5,10 +5,8 @@
 
   <div class="flex-container">
     <% @images.sort { |a,b| b.updated_at <=> a.updated_at }.each do |image| %>
-      <div class="image hover-image flex-item">
-        <%= render "images/image_info", :@album => @album, :image => image %>
-      </div>
-  <% end %>
+      <%= render "images/image_info", :@album => @album, :image => image %>
+    <% end %>
   </div>
 
   <% if current_user %> <!-- add actions if user is album owner -->

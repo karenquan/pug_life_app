@@ -26,9 +26,7 @@
   <section id="userFavorites flex-container">
     <h2>favorites.</h2>
     <% @user.favorites.each do |image| %>
-      <div class="image hover-image flex-item">
         <%= render "images/image_info", :image => image, :@album => image.album %>
-      </div> <!-- end image div -->
     <% end %> <!-- end favorites loop -->
   </section>
 </section>
