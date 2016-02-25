@@ -762,7 +762,8 @@ form a {
     box-sizing: border-box;
     display: inline-block;
     height: 100%;
-    width: 100%; }
+    width: 100%;
+    font-size: 15px; }
     .add-favorite-button a:hover, .remove-favorite-button a:hover {
       color: #FFF; }
 
