@@ -1,11 +1,5 @@
 <section class="container">
-  <h1 class="username"><%= @user.username %></h1>
-
-  <% if current_user %>
-    <% if current_user.id == @user.id %>
-      <%= link_to 'Add Album', new_user_album_path(@user), class: "add-button" %>
-    <% end %>
-  <% end %>
+  <h1 class="header"><%= @user.username %></h1>
 
   <section id="userImages">
     <% @albums.each do |album| %>
@@ -25,6 +19,11 @@
 
   <section id="userAlbums">
     <h2>Albums</h2>
+    <% if current_user %>
+      <% if current_user.id == @user.id %>
+        <%= link_to 'Add Album', new_user_album_path(@user), class: "add-button" %>
+      <% end %>
+    <% end %>
     <% @albums.each do |album| %>
       <div>
         <%= link_to album.title, album_path(:id => album.id) %>

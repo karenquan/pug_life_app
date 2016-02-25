@@ -62,13 +62,14 @@ h1, h2, h3 {
 }
 
 h1 {
-  &.username {
+  &.header {
     font-size: 100px;
     text-transform: lowercase;
     margin: 0 auto;
-    padding: 20px;
+    padding: 20px 0;
     border-bottom: 1px solid;
     text-align: left;
+    margin-bottom: 40px;
 
     &:after {
       content: '.';
@@ -513,8 +514,12 @@ form {
   display: block;
 }
 
-form input[type="text"].error, form input[type="password"].error, textarea.error, {
+form input[type="text"].error, form input[type="password"].error, {
   border-bottom: 1px solid $red;
+}
+
+textarea.error {
+  border: 1px solid $red;
 }
 
 @media (max-width: 730px) {
