@@ -1,7 +1,7 @@
 <div class="edit container">
   <h1>Edit Image</h1>
   <%= form_for @image do |f| %>
-      <%= f.label :url, 'Image URL' %>
+      <%= f.label :url, 'Choose a File...', class: 'image-upload' %>
       <%= f.file_field :url %>
 
       <%= f.label :title %>

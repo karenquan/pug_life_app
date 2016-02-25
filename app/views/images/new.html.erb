@@ -4,10 +4,10 @@
     <%= f.label :url, 'Choose a file...', class: 'image-upload' %>
     <%= f.file_field :url %>
 
-    <%= f.label :title %>
+    <%= f.label :title, '*Title' %>
     <%= f.text_field :title %>
 
-    <%= f.label :description %>
+    <%= f.label :description, '*Description (Max 100 characters)' %>
     <%= f.text_area :description %>
 
     <%= f.submit 'Submit' %>

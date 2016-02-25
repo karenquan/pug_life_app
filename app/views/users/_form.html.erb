@@ -9,19 +9,21 @@
     </div>
   <% end %>
 
-  <%= f.label :first_name, 'First Name' %>
+  <%= f.label :first_name, '*First Name' %>
   <%= f.text_field :first_name, :class => 'test' %>
 
-  <%= f.label :last_name, 'Last Name' %>
+  <%= f.label :last_name, '*Last Name' %>
   <%= f.text_field :last_name %>
 
-  <%= f.label :username %>
+  <%= f.label :username, '*Username (At least 2 characters)' %>
   <%= f.text_field :username %>
 
-  <%= f.label :password %>
+  <%= f.label :password, '*Password (2-20 characters)' %>
   <%= f.password_field :password %>
 
-  <%= f.label :password_confirmation, 'Confirm Password' %>
+  <%= f.label :password_confirmation, '*Confirm Password' %>
   <%= f.password_field :password_confirmation %>
- <%= f.submit submit_label %>
+
+  <%= f.submit submit_label %>
+
 <% end %>

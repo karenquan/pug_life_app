@@ -523,6 +523,12 @@ form {
     border: 1px solid $redhover;
     background-color: $redhover;
   }
+
+  &.user {
+    width: 80%;
+    box-sizing: border-box;
+    padding: 20px 0;
+  }
 }
 
 .add-favorite-button a, .remove-favorite-button a {

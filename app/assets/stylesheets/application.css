@@ -758,6 +758,10 @@ form a {
   .delete-button:hover, .remove-favorite-button:hover {
     border: 1px solid #c63939;
     background-color: #c63939; }
+  .delete-button.user, .remove-favorite-button.user {
+    width: 80%;
+    box-sizing: border-box;
+    padding: 20px 0; }
 
 .add-favorite-button a, .remove-favorite-button a {
   color: #FFF; }
