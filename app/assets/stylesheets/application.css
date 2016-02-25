@@ -668,6 +668,8 @@ form a {
   white-space: nowrap;
   text-align: center;
   font-size: 0; }
+  .modal > * {
+    white-space: normal; }
   .modal a {
     color: #7EC0EE; }
     .modal a:hover {

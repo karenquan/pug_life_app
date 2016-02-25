@@ -398,6 +398,10 @@ form {
   text-align: center;
   font-size: 0;
 
+  > * {
+    white-space: normal;
+  }
+
   a {
     color: $skyblue;
 
