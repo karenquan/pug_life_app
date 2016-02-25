@@ -388,7 +388,8 @@ html, body {
 
 body {
   background-color: #EEE;
-  font-family: 'Newscycle', Arial, sans-serif; }
+  font-family: 'Newscycle', Arial, sans-serif;
+  color: #575757; }
 
 section, div {
   -webkit-box-sizing: border-box;
@@ -403,7 +404,17 @@ a {
   color: #7EC0EE;
   text-transform: uppercase; }
   a:hover {
-    color: #FF82AB; }
+    color: #575757; }
+  a.album {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid;
+    text-overflow: ellipsis;
+    width: 150px;
+    padding: 15px 0;
+    margin: 0 0 5px 0; }
 
 h1, h2, h3 {
   margin: 0;

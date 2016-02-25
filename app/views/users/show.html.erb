@@ -17,7 +17,7 @@
     <% end %> <!-- end albums loop -->
   </section>
 
-  <section id="userAlbums">
+  <section id="userAlbums flex-container">
     <h2>albums.</h2>
     <% if current_user %>
       <% if current_user.id == @user.id %>
@@ -25,9 +25,7 @@
       <% end %>
     <% end %>
     <% @albums.each do |album| %>
-      <div>
-        <%= link_to album.title, album_path(:id => album.id) %>
-      </div>
+        <%= link_to album.title, album_path(:id => album.id), class: "flex-item album" %>
     <% end %>
   </section>
 
