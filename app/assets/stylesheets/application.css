@@ -696,7 +696,7 @@ form a {
       display: inline-block;
       vertical-align: top;
       width: 48%;
-      padding: 10px; }
+      padding: 20px 20px 20px 0; }
     .modal .content img {
       width: 48%;
       display: inline-block; }
@@ -741,9 +741,17 @@ form a {
 .add-favorite-button, .remove-favorite-button {
   display: block;
   margin: 15px auto 0;
-  width: 100px; }
-  .add-favorite-button a:hover, .remove-favorite-button a:hover {
-    color: #FFF; }
+  padding: 0; }
+  .add-favorite-button a, .remove-favorite-button a {
+    padding: 15px 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    height: 100%;
+    width: 100%; }
+    .add-favorite-button a:hover, .remove-favorite-button a:hover {
+      color: #FFF; }
 
 .edit-button {
   border: 1px solid #7EC0EE;
