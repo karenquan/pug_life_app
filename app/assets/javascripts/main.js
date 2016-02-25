@@ -47,12 +47,11 @@ var Images = (function(){
     $modalContent = $('<div />', { 'class': 'content' });
       $favoriteButton = '';
       $closeButton = $('<div />', { 'class': 'close' });
-      $imageTitle = $('<h3 />', { text: $(this).find('h3').html() });
+      $imageTitle = $('<h2 />', { text: $(this).find('h3').html() });
       $imageAlbum = $('<p />', { html: $(this).find('.image-album').html() });
       $imageDescription = $('<p />', { text: $(this).find('.image-description').html() });
-      $imageDate = $('<p />', { text: $(this).find('.image-date').html() });
       $image = $('<img />', { src: $(this).find('.image-url').html(), alt: $(this).find('h3').html() });
-      $userPath = $('<p />', { html: $(this).find('.image-user-path').html() });
+      $userPath = $('<p />', { 'class': 'image-user-path', html: $(this).find('.image-user-path').html() });
 
       $addFavoriteButton = $(this).find('.add-favorite-button');
       $removeFavoriteButton = $(this).find('.remove-favorite-button');
@@ -78,10 +77,9 @@ var Images = (function(){
     $modalContainer = $('<div />', { 'class': 'modal' });
     $modalContent = $('<div />', { 'class': 'content' });
       $closeButton = $('<div />', { 'class': 'close' });
-      $imageTitle = $('<h3 />', { text: $imageInfo.find('h3').html() });
+      $imageTitle = $('<h2 />', { text: $imageInfo.find('h3').html() });
       $imageAlbum = $('<p />', { html: $imageInfo.find('.image-album').html() });
       $imageDescription = $('<p />', { text: $imageInfo.find('.image-description').html() });
-      $imageDate = $('<p />', { text: $imageInfo.find('.image-date').html() });
       $image = $('<img />', { src: $imageInfo.find('.image-url').html(), alt: $(this).find('h3').html() });
       $userPath = $('<p />', { html: $imageInfo.find('.image-user-path').html() });
 

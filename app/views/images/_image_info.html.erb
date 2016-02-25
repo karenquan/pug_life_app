@@ -12,7 +12,6 @@
 <div class="image-info hide">
   <h3><%= image.title %></h3>
   <p class="image-description"><%= image.description %></p>
-  <p class="image-date"><%= image.created_at.strftime("%B %d, %Y") %></p>
   <span class="image-album hide">in <%= link_to image.album.title, album_path(image.album_id) %></span>
   <span class="image-username hide"><%= image.album.user.username %></span>
   <span class="image-user-path hide">By: <%= link_to image.album.user.username, user_path(image.album.user.id) %> on <%= image.created_at.strftime("%B %d, %Y") %></span>

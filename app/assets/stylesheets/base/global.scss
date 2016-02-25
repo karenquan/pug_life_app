@@ -1,3 +1,22 @@
+/*-------------------- TYPOGRAPHY ------------------*/
+@font-face {
+  font-family: 'Newscycle';
+  src: url('news_cycle.ttf');
+  src: url('news_cycle.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Anton';
+  src: url('anton.ttf');
+  src: url('anton.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Pathway';
+  src: url('pathway_gothic.ttf');
+  src: url('pathway_gothic.ttf') format('truetype');
+}
+
 /*-------------------- COLORS----------------------*/
 $pink: #FF82AB;
 $skyblue: #7EC0EE;
@@ -14,6 +33,7 @@ $lightgray: #ABABAB;
 
 body {
   background-color: #EEE;
+  font-family: 'Newscycle', Arial, sans-serif;
 }
 
 section, div {
@@ -22,6 +42,57 @@ section, div {
 
 a {
   text-decoration: none;
+  @include transition(0.5s);
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-family: 'Anton', Arial, sans-serif;
+  text-align: center;
+}
+
+h1 {
+  &.username {
+    font-size: 100px;
+    text-transform: lowercase;
+    margin: 0 auto;
+    padding: 20px;
+    border-bottom: 1px solid;
+    text-align: left;
+
+    &:after {
+      content: '.';
+    }
+  }
+}
+
+h2 {
+  font-size: 40px;
+}
+
+nav {
+  background-color: $darkgray;
+
+  a {
+    color: #FFF;
+    text-transform: uppercase;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+    @include transition(0.5s);
+    padding: 10px;
+
+    &:hover {
+      background-color: $skyblue;
+    }
+  }
 }
 
 /*-------------------- IDs ------------------------*/
@@ -86,8 +157,8 @@ a {
   outline: none;
   padding: 15px 30px;
   color: #FFF;
-  width: 100px;
   text-align: center;
+  text-transform: uppercase;
 
   &:hover {
     cursor: pointer;

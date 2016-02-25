@@ -368,10 +368,24 @@ td,
 th {
   padding: 0; }
 
+/*-------------------- TYPOGRAPHY ------------------*/
+@font-face {
+  font-family: 'Newscycle';
+  src: url("news_cycle.ttf");
+  src: url("news_cycle.ttf") format("truetype"); }
+@font-face {
+  font-family: 'Anton';
+  src: url("anton.ttf");
+  src: url("anton.ttf") format("truetype"); }
+@font-face {
+  font-family: 'Pathway';
+  src: url("pathway_gothic.ttf");
+  src: url("pathway_gothic.ttf") format("truetype"); }
 /*-------------------- COLORS----------------------*/
 /*-------------------- TAGS -----------------------*/
 body {
-  background-color: #EEE; }
+  background-color: #EEE;
+  font-family: 'Newscycle', Arial, sans-serif; }
 
 section, div {
   -webkit-box-sizing: border-box;
@@ -379,7 +393,46 @@ section, div {
   box-sizing: border-box; }
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  transition: 0.5s; }
+
+h1, h2, h3 {
+  margin: 0;
+  font-family: 'Anton', Arial, sans-serif;
+  text-align: center; }
+
+h1.username {
+  font-size: 100px;
+  text-transform: lowercase;
+  margin: 0 auto;
+  padding: 20px;
+  border-bottom: 1px solid;
+  text-align: left; }
+  h1.username:after {
+    content: '.'; }
+
+h2 {
+  font-size: 40px; }
+
+nav {
+  background-color: #575757; }
+  nav a {
+    color: #FFF;
+    text-transform: uppercase; }
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+  nav li {
+    display: inline-block;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    transition: 0.5s;
+    padding: 10px; }
+    nav li:hover {
+      background-color: #7EC0EE; }
 
 /*-------------------- IDs ------------------------*/
 /*-------------------- CLASSES --------------------*/
@@ -433,8 +486,8 @@ a {
   outline: none;
   padding: 15px 30px;
   color: #FFF;
-  width: 100px;
-  text-align: center; }
+  text-align: center;
+  text-transform: uppercase; }
   .add-button:hover, .edit-button:hover, .delete-button:hover, .add-favorite-button:hover, .remove-favorite-button:hover {
     cursor: pointer; }
 
@@ -527,6 +580,9 @@ input.error, textarea.error {
       text-overflow: ellipsis;
       max-width: 200px;
       max-height: 140px; }
+
+.image-user-path {
+  text-transform: uppercase; }
 
 .admin-delete-icon {
   position: absolute;

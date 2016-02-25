@@ -1,6 +1,6 @@
-<h1><%= @album.title %></h1>
+<h2><%= @album.title %></h2>
 <p><%= @album.description %></p>
-<span>By: <%= link_to @album.user.username, user_path(@album.user_id) %></span>
+<p>By: <%= link_to @album.user.username, user_path(@album.user_id) %></p>
 
 <% @images.sort { |a,b| b.updated_at <=> a.updated_at }.each do |image| %>
   <% if current_user %> <!-- only display hover effect on image if not album owner (so they can click on edit link -->
@@ -26,7 +26,6 @@
     <div class="image-info hide">
       <h3><%= image.title %></h3>
       <p class="image-description"><%= image.description %></p>
-      <p class="image-date"><%= image.created_at.strftime("%B %d, %Y") %></p>
       <span class="image-album hide">in <%= link_to image.album.title, album_path(image.album_id) %></span>
       <span class="image-username hide"><%= image.album.user.username %></span>
       <span class="image-user-path hide">By: <%= link_to image.album.user.username, user_path(image.album.user.id) %> on <%= image.created_at.strftime("%B %d, %Y") %></span>
