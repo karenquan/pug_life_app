@@ -758,6 +758,9 @@ form a {
 
 .album-owner-actions {
   margin: 40px 0 0 0; }
+  .album-owner-actions a {
+    width: 110px;
+    margin: 5px 0 0 0; }
 
 .add-button, .edit-button, .delete-button, .add-favorite-button, .remove-favorite-button {
   display: inline-block;

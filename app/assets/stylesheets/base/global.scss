@@ -521,6 +521,11 @@ form {
 
 .album-owner-actions {
   margin: 40px 0 0 0;
+
+  a {
+    width: 110px;
+    margin: 5px 0 0 0;
+  }
 }
 
 .add-button, .edit-button, .delete-button, .add-favorite-button, .remove-favorite-button {
