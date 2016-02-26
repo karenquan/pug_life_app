@@ -7,18 +7,26 @@ Pug Life is for pug lovers! Anyone who visits the site will be able to browse ph
 [Pug Life](https://agile-earth-33019.herokuapp.com/) | [User Stories](https://trello.com/b/kABEN5rc/pug-life)
 
 ## Technologies Used
-1. HTML
-2. CSS/Sass
-3. jQuery
-4. Ruby on Rails
-5. [Paperclip](https://github.com/thoughtbot/paperclip) gem for image uploads
-6. [Amazon Web Services](https://aws.amazon.com/) for image storage
-7. [Heroku](https://www.heroku.com/) for deployment
+* HTML
+* CSS/Sass
+* jQuery
+* Ruby on Rails
+* [Paperclip](https://github.com/thoughtbot/paperclip) gem for image uploads
+	* Prerequisites:
+		* [Amazon Web Services](https://aws.amazon.com/what-is-aws/) account for image storage in the cloud
+		* [Heroku Toolbelt](https://toolbelt.heroku.com/) for web application creation and deployment to Heroku
+		* [ImageMagick](http://www.imagemagick.org/script/index.php) for image resize
+	* Configuration
+		* Gems to be added to your Gemfile: 
+			* paperclip
+			* aws-sdk
+			* [dotenv](https://github.com/bkeepers/dotenv) to load environment variables from .env into ENV in development 
+* [Heroku](https://www.heroku.com/) for deployment
 
 
 ## Get Started
-[Click here](https://agile-earth-33019.herokuapp.com/) to visit the Pug Life site! I bet you won't be able to view it without smiling. :)
+[Click here](https://agile-earth-33019.herokuapp.com/) to visit the Pug Life site.
 
 ##Next Steps
-- AJAX-ify 
+- 
 - Allow users to upload a profile image, and display it on their profile page
