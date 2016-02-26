@@ -4,6 +4,7 @@ var Main = (function(){
     imageHover();
     replaceFileUploadLabelName();
     profileTabs();
+    mobileMenu();
 
     $('.image-info').on('click', imageClickEvent);
   }
@@ -115,6 +116,13 @@ var Main = (function(){
       var fileName = $(this).val().split('\\').pop();
       if(fileName)
         $label.html(fileName);
+    });
+  }
+
+  function mobileMenu() {
+    $('#mobile').on('click', function(e) {
+      e.preventDefault();
+      $('nav ul').toggleClass('show');
     });
   }
 

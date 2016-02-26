@@ -103,6 +103,7 @@ nav {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    font-size: 0;
     height: 100%;
   }
 
@@ -111,6 +112,7 @@ nav {
     @include transition(0.5s);
     @include box-sizing(border-box);
     height: 100%;
+    font-size: 16px;
 
     &:hover {
       background-color: $skyblue;
@@ -120,12 +122,14 @@ nav {
 
 ul {
   margin: 30px 0;
+  padding: 0;
 
   &.user-sections {
     list-style-type: none;
 
     li {
       display: inline-block;
+      margin: 5px 0;
 
       a {
         display: inline-block;
@@ -284,6 +288,10 @@ form {
   }
 }
 
+#mobile {
+  display: none;
+}
+
 /*-------------------- CLASSES --------------------*/
 
 .container {
@@ -434,7 +442,7 @@ form {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 10000;
+  z-index: 200;
   white-space: nowrap;
   text-align: center;
   font-size: 0;
@@ -499,7 +507,7 @@ form {
       position: absolute;
       top: -10px;
       right: -10px;
-      z-index: 10001;
+      z-index: 201;
       cursor: pointer;
 
       &:hover {
@@ -650,6 +658,59 @@ textarea.error {
 
     .bg {
       display: none;
+    }
+  }
+}
+
+@media (max-width: 740px) {
+  .modal {
+    .content {
+      max-width: 700px;
+      width: 90%;
+      margin: 40px auto;
+
+      .close {
+        top: -40px;
+        right: 0px;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  #mobile {
+    display: block;
+  }
+
+  .container {
+    margin-top: 70px;
+  }
+
+  .registration {
+    margin-top: 100px;
+  }
+
+  nav {
+    z-index: 900;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    a {
+      width: 100%;
+      @include box-sizing(border-box);
+    }
+
+    ul {
+      height: auto;
+      background-color: $darkgray;
+      display: none;
+    }
+
+    li {
+      display: block;
+      width: 100%;
+      z-index: 200;
     }
   }
 }
