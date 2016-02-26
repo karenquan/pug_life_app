@@ -28,5 +28,5 @@ Pug Life is for pug lovers! Anyone who visits the site will be able to browse ph
 [Click here](https://agile-earth-33019.herokuapp.com/) to visit the Pug Life site.
 
 ##Next Steps
-- 
+- Use Ajax to limit the number of page refreshes & redirects
 - Allow users to upload a profile image, and display it on their profile page
