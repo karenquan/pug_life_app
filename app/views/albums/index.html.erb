@@ -1,5 +1,4 @@
 <h1>Albums</h1>
-
 <% @albums.each do |album| %>
   <div>
     <h2><%= link_to album.title, user_album_path(:id => album.id) %></h2>

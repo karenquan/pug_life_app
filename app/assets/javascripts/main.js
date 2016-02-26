@@ -5,7 +5,6 @@ var Main = (function(){
     replaceFileUploadLabelName();
     profileTabs();
 
-    $('.image-display').on('click', albumImageClickEvent);
     $('.image-info').on('click', imageClickEvent);
   }
 
@@ -70,8 +69,7 @@ var Main = (function(){
     );
   }
 
-  function imageClickEvent() {
-    //build dynamic image modal
+  function imageClickEvent() { //build dynamic image modal
     $modalContainer = $('<div />', { 'class': 'modal' });
     $modalContent = $('<div />', { 'class': 'content' });
     $imageInfoContainer = $('<div />', { 'class': 'modal-info' });
@@ -94,38 +92,6 @@ var Main = (function(){
 
       $imageInfoContainer.append($imageTitle).append($imageDescription).append($imageAlbum).append($userPath).append($favoriteButton);
       $modalContent.append($closeButton).append($imageInfoContainer).append($image);
-    $modalContainer.append($modalContent);
-    $('body').append($modalContainer);
-
-    $('.close').on('click', function(e) {
-      e.stopPropagation();
-      $('.modal').remove();
-    });
-  }
-
-  function albumImageClickEvent() { //event for clicking an image not on home page
-    $imageInfo = $(this).siblings('.image-info');
-    $modalContainer = $('<div />', { 'class': 'modal' });
-    $modalContent = $('<div />', { 'class': 'content' });
-    $imageInfoContainer = $('<div />', { 'class': 'modal-info' });
-      $closeButton = $('<div />', { 'class': 'close' });
-      $imageTitle = $('<h2 />', { text: $imageInfo.find('h3').html() });
-      $imageAlbum = $('<p />', { html: $imageInfo.find('.image-album').html() });
-      $imageDescription = $('<p />', { text: $imageInfo.find('.image-description').html() });
-      $image = $('<img />', { src: $imageInfo.find('.image-url').html(), alt: $(this).find('h3').html() });
-      $userPath = $('<p />', { html: $imageInfo.find('.image-user-path').html() });
-
-      $addFavoriteButton = $imageInfo.find('.add-favorite-button');
-      $removeFavoriteButton = $imageInfo.find('.remove-favorite-button');
-      if ($addFavoriteButton.length) {
-        $favoriteButton = $('<span />', { 'class': 'add-favorite-button', html: $addFavoriteButton.html() });
-      }
-      if ($removeFavoriteButton.length) {
-        $favoriteButton = $('<span />', { 'class': 'remove-favorite-button', html: $removeFavoriteButton.html() });
-      }
-
-    $imageInfoContainer.append($imageTitle).append($imageDescription).append($imageAlbum).append($userPath).append($favoriteButton);
-    $modalContent.append($closeButton).append($imageInfoContainer).append($image);
     $modalContainer.append($modalContent);
     $('body').append($modalContainer);
 
