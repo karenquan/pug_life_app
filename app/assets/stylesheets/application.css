@@ -414,7 +414,10 @@ a {
     text-overflow: ellipsis;
     width: 150px;
     padding: 15px 0;
-    margin: 0 0 5px 0; }
+    margin: 0 0 5px 0;
+    color: #3CB371; }
+    a.album:hover {
+      color: #575757; }
 
 h1, h2, h3 {
   margin: 0;
@@ -455,6 +458,21 @@ nav {
     height: 100%; }
     nav li:hover {
       background-color: #7EC0EE; }
+
+ul {
+  margin: 30px 0; }
+  ul.user-sections {
+    list-style-type: none; }
+    ul.user-sections li {
+      display: inline-block; }
+      ul.user-sections li a {
+        display: inline-block;
+        padding: 10px 40px;
+        border: 1px solid;
+        width: 150px;
+        color: #575757; }
+        ul.user-sections li a.active, ul.user-sections li a:hover {
+          color: #CD5555; }
 
 form > * {
   display: block;
@@ -548,6 +566,12 @@ form a {
   border: 1px solid #7EC0EE; }
 
 /*-------------------- IDs ------------------------*/
+#userAlbums a.add-button {
+  width: 150px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
 /*-------------------- CLASSES --------------------*/
 .container {
   max-width: 1000px;

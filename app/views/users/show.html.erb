@@ -1,33 +1,38 @@
 <section class="container">
   <h1 class="username"><%= @user.username %>.</h1>
 
+  <ul class="user-sections">
+    <li><a href="#userImages">all images</a></li>
+    <li><a href="#userAlbums">albums</a></li>
+    <li><a href="#userFavorites">favorites</a></li>
+  </ul>
+
   <section id="userImages" class="flex-container">
     <% @albums.each do |album| %>
       <% album.images.each do |image| %>
-
-          <%= render "images/image_info", :image => image, :@album => image.album %>
-
+        <%= render "images/image_info", :image => image, :@album => image.album %>
       <% end %>
     <% end %> <!-- end albums loop -->
   </section>
 
-  <section id="userAlbums flex-container">
-    <h2>albums.</h2>
-    <% if current_user %>
-      <% if current_user.id == @user.id %>
-        <%= link_to 'Add Album', new_user_album_path(@user), class: "add-button" %>
+  <section id="userAlbums" class="flex-container">
+    <div>
+      <% if current_user %>
+        <% if current_user.id == @user.id %>
+          <%= link_to 'Add Album', new_user_album_path(@user), class: "add-button flex-item" %>
+        <% end %>
       <% end %>
-    <% end %>
-    <% @albums.each do |album| %>
-        <%= link_to album.title, album_path(:id => album.id), class: 'flex-item album' %>
-    <% end %>
+      <% @albums.each do |album| %>
+          <%= link_to album.title, album_path(:id => album.id), class: 'flex-item album' %>
+      <% end %>
+    </div>
+
   </section>
 
-  <section id="userFavorites flex-container">
-    <h2>favorites.</h2>
-    <% @user.favorites.each do |image| %>
+  <section id="userFavorites" class="flex-container">
+      <% @user.favorites.each do |image| %>
         <%= render "images/image_info", :image => image, :@album => image.album %>
-    <% end %> <!-- end favorites loop -->
+      <% end %> <!-- end favorites loop -->
   </section>
 </section>
 

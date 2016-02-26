@@ -63,6 +63,11 @@ a {
     width: 150px;
     padding: 15px 0;
     margin: 0 0 5px 0;
+    color: $green;
+
+    &:hover {
+      color: $darkgray;
+    }
   }
 }
 
@@ -109,6 +114,30 @@ nav {
 
     &:hover {
       background-color: $skyblue;
+    }
+  }
+}
+
+ul {
+  margin: 30px 0;
+
+  &.user-sections {
+    list-style-type: none;
+
+    li {
+      display: inline-block;
+
+      a {
+        display: inline-block;
+        padding: 10px 40px;
+        border: 1px solid;
+        width: 150px;
+        color: $darkgray;
+
+        &.active, &:hover {
+          color: $red;
+        }
+      }
     }
   }
 }
@@ -248,7 +277,12 @@ form {
 }
 
 /*-------------------- IDs ------------------------*/
-
+#userAlbums {
+  a.add-button {
+    width: 150px;
+    @include box-sizing(border-box);
+  }
+}
 
 /*-------------------- CLASSES --------------------*/
 

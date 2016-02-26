@@ -1,11 +1,44 @@
-var Images = (function(){
+var Main = (function(){
 
   function _eventHandlers() {
     imageHover();
     replaceFileUploadLabelName();
+    profileTabs();
 
     $('.image-display').on('click', albumImageClickEvent);
     $('.image-info').on('click', imageClickEvent);
+  }
+
+  function profileTabs() {
+    $('ul.user-sections').each(function(e) {
+      var $active, $content, $links = $(this).find('a');
+      console.log($(this).find('a'));
+      $active = $($links.filter('[href="' + location.hash + '"]')[0] || $links[0]);
+      $active.addClass('active');
+      $content = $($active[0].hash);
+
+      //hide non-active content
+      $links.not($active).each(function(e) {
+        $(this.hash).hide();
+      });
+
+      //bind click event
+      $(this).on('click', 'a', function(e) {
+        //make old tab inactive
+        $active.removeClass('active');
+        $content.hide();
+
+        //update variables with new link & content
+        $active = $(this);
+        $content = $(this.hash);
+
+        //make tab active
+        $active.addClass('active');
+        $content.show();
+
+        e.preventDefault();
+      });
+    });
   }
 
   function editButtonClickEvent(e) {
@@ -104,7 +137,6 @@ var Images = (function(){
 
   function adminDeleteClick() {
     $('.admin-delete-icon').on('click', function(e) {
-      console.log('hi');
       e.stopPropagation();
     });
   }
@@ -131,5 +163,5 @@ var Images = (function(){
 })();
 
 $(document).ready(function(){
-  Images.init();
+  Main.init();
 });
