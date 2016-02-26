@@ -21,12 +21,15 @@ Pug Life is for pug lovers! Anyone who visits the site will be able to browse ph
 			* paperclip
 			* aws-sdk
 			* [dotenv](https://github.com/bkeepers/dotenv) to load environment variables from .env into ENV in development 
-* [Heroku](https://www.heroku.com/) for deployment
+* [Heroku](https://www.heroku.com/) for deployment ([instructions](https://devcenter.heroku.com/articles/getting-started-with-rails4))
 
 
 ## Get Started
-[Click here](https://agile-earth-33019.herokuapp.com/) to visit the Pug Life site.
+* [Click here](https://agile-earth-33019.herokuapp.com/) to visit the Pug Life site
+* Create an account, or just browse through all images
 
 ##Next Steps
-- Use Ajax to limit the number of page refreshes & redirects
+- Use Ajax for form submissions to limit the number of page refreshes & redirects
 - Allow users to upload a profile image, and display it on their profile page
+- Allow users to add tags to images
+- Allow users to search by tag name
