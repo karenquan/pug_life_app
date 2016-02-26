@@ -14,9 +14,7 @@ Rails.application.routes.draw do
   end
 
   delete '/images/:id/admin' => 'images#admin_destroy', as: :admin_destroy
-
-
-  get '/signup', to: 'users#new'
+  get '/signup', to: 'users#new', as: :signup
 
   resources :sessions, only: [:new, :create, :destroy]
     get '/login', to: 'sessions#new'

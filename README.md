@@ -1,6 +1,6 @@
 # Pug Life
 
-Pug Life is for pug lovers! Anyone who visits the site will be able to browse photos of pugs that other users have added. But, as a registered user, you will have the opportunity to add your own photos, and they will appear on your own personal profile page. You can even add other people's photos to your "Favorites" list. :)
+Pug Life is an online pug repository! Anyone who visits the site will be able to browse photos of pugs that other users have added. But, as a registered user, you will have the opportunity to add your own photos, and they will appear on your own personal profile page. You can even add other people's photos to your "Favorites" list. :)
 
 ![heart](app/assets/images/readme.jpg)
 
@@ -26,10 +26,10 @@ Pug Life is for pug lovers! Anyone who visits the site will be able to browse ph
 
 ## Get Started
 * [Click here](https://agile-earth-33019.herokuapp.com/) to visit the Pug Life site
-* Create an account, or just browse through all images
+* [Create an account](https://agile-earth-33019.herokuapp.com/signup), or just browse through all images
 
 ##Next Steps
-- Use Ajax for form submissions to limit the number of page refreshes & redirects
+- Use Ajax for form submissions to limit the number of page refreshes and redirects
 - Allow users to upload a profile image, and display it on their profile page
 - Allow users to add tags to images
 - Allow users to search by tag name
