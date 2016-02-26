@@ -5,6 +5,7 @@ var Main = (function(){
     replaceFileUploadLabelName();
     profileTabs();
     mobileMenu();
+    loading();
 
     $('.image-info').on('click', imageClickEvent);
   }
@@ -123,6 +124,12 @@ var Main = (function(){
     $('#mobile').on('click', function(e) {
       e.preventDefault();
       $('nav ul').toggleClass('show');
+    });
+  }
+
+  function loading() {
+    $('form').on('submit', function(e) {
+      $('body').addClass('loading');
     });
   }
 

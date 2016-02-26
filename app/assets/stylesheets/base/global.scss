@@ -644,6 +644,22 @@ form {
   display: block;
 }
 
+.disabled {
+  background-image: $lightgray;
+  border: 1px solid $lightgray;
+}
+
+body.loading:after {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8) url('pug.gif') no-repeat center center;
+  z-index: 1000;
+}
+
 form input[type="text"].error, form input[type="password"].error, {
   border-bottom: 1px solid $red;
 }
