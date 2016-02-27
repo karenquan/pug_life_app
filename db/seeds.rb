@@ -6,18 +6,18 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Image.destroy_all
-Album.destroy_all
-User.destroy_all
+# Image.destroy_all
+# Album.destroy_all
+# User.destroy_all
 
-karen = User.create(
-  first_name: 'Karen',
-  last_name: 'Quan',
-  username: 'karen',
-  password: 'hi',
-  password_confirmation: 'hi',
-  is_admin: true
-)
+# karen = User.create(
+#   first_name: 'Karen',
+#   last_name: 'Quan',
+#   username: 'karen',
+#   password: 'hi',
+#   password_confirmation: 'hi',
+#   is_admin: true
+# )
 
 # chester_album = karen.albums.create(
 #   title: 'Chester',
