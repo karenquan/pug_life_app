@@ -9,7 +9,7 @@
 
   <section id="userImages" class="flex-container">
     <% @albums.each do |album| %>
-      <% album.images.each do |image| %>
+      <% album.images.sort { |a,b| b.updated_at <=> a.updated_at }.each do |image| %>
         <%= render "images/image_info", :image => image, :@album => image.album %>
       <% end %>
     <% end %> <!-- end albums loop -->

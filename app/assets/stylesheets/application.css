@@ -547,6 +547,14 @@ form textarea {
 form a {
   padding: 20px 0 !important; }
 
+table {
+  width: 90%;
+  margin: 30px 0 0 0; }
+  table tr:nth-child(2n) {
+    background-color: #CCC; }
+  table td {
+    width: 20%; }
+
 .add a:hover, .edit a:hover {
   color: #000;
   font-weight: bold; }

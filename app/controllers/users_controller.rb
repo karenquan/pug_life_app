@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authorize_modify_content, only: [:edit, :update, :destroy]
+  before_action :authorize_users_view, only: [:index]
 
   def index
     @users = User.all
@@ -67,6 +68,12 @@ class UsersController < ApplicationController
 
     def authorize_modify_content
       if (current_user != User.find(params[:id])) && !current_user.is_admin
+        redirect_to root_path
+      end
+    end
+
+    def authorize_users_view
+      if !current_user.is_admin
         redirect_to root_path
       end
     end

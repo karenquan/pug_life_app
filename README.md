@@ -8,7 +8,7 @@ Pug Life is an online pug repository! Anyone who visits the site will be able to
 
 ## Technologies Used
 * HTML
-* CSS/Sass
+* CSS/Sass, [Normalize](https://github.com/JohnAlbin/normalize-scss)
 * jQuery
 * Ruby on Rails
 * [Paperclip](https://github.com/thoughtbot/paperclip) gem for image uploads
