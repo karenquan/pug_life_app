@@ -33,3 +33,5 @@ Pug Life is an online pug repository! Anyone who visits the site will be able to
 - Allow users to upload a profile image, and display it on their profile page
 - Allow users to add tags to images
 - Allow users to search by tag name
+- Allow users to flag an image as not being a pug image
+	- Allow admins to see flagged images
