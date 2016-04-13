@@ -25,7 +25,7 @@ Pug Life is an online pug repository! Anyone who visits the site will be able to
 
 
 ## Get Started
-* [Click here](https://agile-earth-33019.herokuapp.com/) to visit the Pug Life site
+* [Click here](http://pug-life.herokuapp.com/) to visit the Pug Life site
 * [Create an account](https://agile-earth-33019.herokuapp.com/signup), or just browse through all images
 
 ##Next Steps
