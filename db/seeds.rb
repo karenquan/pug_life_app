@@ -10,3 +10,4 @@
 # Album.destroy_all
 # User.destroy_all
 
+User.create({first_name: 'Karen', last_name: 'Quan', username: 'karenquan', password: 'herro', is_admin: true})
